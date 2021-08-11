@@ -1,5 +1,5 @@
 # Minimal 11ty + Tailwind starter kit
-This project is a starting point for an Eleventy + Tailwind project. It does not overinvest into a single technology or overly scaffold. It is designed for a dev to clone and then become productive with minimal overhead - without having to learn much about how the project is setup or to clean out sample files.
+This project is a starting point for an Eleventy + Tailwind project. It does not overinvest into a single technology or overly scaffold. It is designed for a dev to clone and then become productive with minimal overhead. The idea is to spend less time learning much about how the project is setup, cleaning out example files, or reconfiguring the technology.
 
 1. [Eleventy](https://www.11ty.dev/) static site generator
 1. [TailwindCSS](https://tailwindcss.com/) utility-first CSS framework
