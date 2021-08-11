@@ -29,6 +29,8 @@
   },
   "websiteMetadata": {
     "title": "My website title",
-    "themeColor": "fafafa"
+    "shortTitle": "My website",
+    "themeColor": "fafafa",
+    "baseUrl": "https://ncksllvn.github.io/11ty-tailwind-starter"
   }
 }
