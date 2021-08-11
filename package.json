@@ -12,7 +12,7 @@
     "build:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css",
     "build:production": "NODE_ENV=production npm-run-all clean build:11ty \"build:tailwind -- --minify\"",
     "clean": "rimraf _site",
-    "watch": "npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
+    "watch": "DEBUG=Eleventy:* npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
     "watch:11ty": "eleventy --serve",
     "watch:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css --watch"
   },
