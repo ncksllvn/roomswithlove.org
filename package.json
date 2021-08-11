@@ -1,7 +1,7 @@
 {
-  "name": "personal-blog",
+  "name": "11ty-tailwind-starter",
   "version": "1.0.0",
-  "description": "nick's personal blog",
+  "description": "Very minimal 11ty + Tailwindcss boilerplate",
   "main": "index.js",
   "engines": {
     "node": "16.3.0"
