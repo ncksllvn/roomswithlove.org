@@ -14,7 +14,7 @@
     "clean": "rimraf _site",
     "watch": "npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
     "watch:11ty": "eleventy --serve",
-    "watch:tailwind": "tailwindcss -i ./style/main.pcss -o ./_site/style/main.pcss --watch"
+    "watch:tailwind": "tailwindcss -i ./style/main.pcss -o ./_site/style/main.css --watch"
   },
   "author": "ncksllvn",
   "license": "ISC",
