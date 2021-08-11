@@ -1,5 +1,6 @@
 ---
 title: Example project
+layout: article
 tags:
   - projects
 ---

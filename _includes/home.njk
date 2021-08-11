@@ -6,14 +6,18 @@
   <h2>Stories</h2>
   <ul>
   {%- for story in collections.stories -%}
-    <li>{{ story.data.title }}</li>
+    <li>
+      <a href="{{ story.url }}">{{ story.data.title }}</a>
+    </li>
   {%- endfor -%}
   </ul>
 
   <h2>Projects</h2>
   <ul>
   {%- for project in collections.projects -%}
-    <li>{{ project.data.title }}</li>
+    <li>
+      <a href="{{ project.url }}">{{ project.data.title }}</a>
+    </li>
   {%- endfor -%}
   </ul>
 </body>

@@ -1,5 +1,6 @@
 ---
 title: Example story
+layout: article
 tags:
   - stories
 ---
