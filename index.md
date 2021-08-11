@@ -1,8 +1,7 @@
 ---
-title: Barefoot Nick's blog
+title: Welcome
 layout: home
 ---
-# Welcome to my blog
+# Welcome to the homepage
 
-Testing 2
-Testing 3
+Here's a paragraph to help get started with things.
