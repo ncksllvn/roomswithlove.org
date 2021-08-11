@@ -7,7 +7,7 @@
   <ul>
   {%- for story in collections.stories -%}
     <li>
-      <a href="{{ story.url }}">{{ story.data.title }}</a>
+      <a href="{{ story.url | url }}">{{ story.data.title }}</a>
     </li>
   {%- endfor -%}
   </ul>
@@ -16,9 +16,10 @@
   <ul>
   {%- for project in collections.projects -%}
     <li>
-      <a href="{{ project.url }}">{{ project.data.title }}</a>
+      <a href="{{ project.url | url }}">{{ project.data.title }}</a>
     </li>
   {%- endfor -%}
+
   </ul>
 </body>
 </html>

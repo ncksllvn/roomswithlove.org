@@ -10,7 +10,7 @@
     "build": "npm-run-all clean build:11ty build:tailwind",
     "build:11ty": "eleventy",
     "build:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css",
-    "build:production": "NODE_ENV=production npm-run-all clean build:11ty \"build:tailwind -- --minify\"",
+    "build:production": "NODE_ENV=production npm-run-all clean \"build:11ty -- --pathprefix=11ty-tailwind-starter\" \"build:tailwind -- --minify\"",
     "clean": "rimraf _site",
     "deploy": "npm run build:production; gh-pages -d _site",
     "watch": "DEBUG=Eleventy:* npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
