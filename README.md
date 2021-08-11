@@ -14,17 +14,23 @@ These are the primary tasks intended for devs to run, but there are additional t
 ```bash
 # Build and output a development build of the website.
 npm run build
+```
 
+``` bash
 # Build and output the production-ready build of the website into the _site dir.
 # The built CSS is pruned and minifed using Tailwind CLI.
 # Important - Update or remove the "pathprefix` value in the package.json for this command.
 # This is useful for deploying to GitHub Pages. For more info, see https://www.11ty.dev/docs/filters/url/.
 build:production
+```
 
+```bash
 # Run a production build of the website, then push the _site directory to the "gh-pages" branch.
 # Running this task is intended to be a simple way to update your project on GitHub Pages.
 deploy
+```
 
+```bash
 # Starts the 11ty dev server in watch mode while also watching the Tailwind style directory for changes.
 watch
 ```
