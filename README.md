@@ -21,18 +21,18 @@ npm run build
 # The built CSS is pruned and minifed using Tailwind CLI.
 # Important - Update or remove the "pathprefix` value in the package.json for this command.
 # This is useful for deploying to GitHub Pages. For more info, see https://www.11ty.dev/docs/filters/url/.
-build:production
+npm run build:production
 ```
 
 ```bash
 # Run a production build of the website, then push the _site directory to the "gh-pages" branch.
 # Running this task is intended to be a simple way to update your project on GitHub Pages.
-deploy
+npm run deploy
 ```
 
 ```bash
 # Starts the 11ty dev server in watch mode while also watching the Tailwind style directory for changes.
-watch
+npm run watch
 ```
 
 ## Considerations
