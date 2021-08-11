@@ -1,8 +1,20 @@
 <html>
   {% include 'head.njk' %}
 <body>
-  <div class="prose">
-    {{ content }}
-  </div>
+  {{ content | safe }}
+
+  <h2>Stories</h2>
+  <ul>
+  {%- for story in collections.stories -%}
+    <li>{{ story.data.title }}</li>
+  {%- endfor -%}
+  </ul>
+
+  <h2>Projects</h2>
+  <ul>
+  {%- for project in collections.projects -%}
+    <li>{{ project.data.title }}</li>
+  {%- endfor -%}
+  </ul>
 </body>
 </html>
