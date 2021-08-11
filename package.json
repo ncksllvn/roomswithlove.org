@@ -18,7 +18,7 @@
     "watch:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css --watch"
   },
   "author": "ncksllvn",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@tailwindcss/typography": "^0.4.1",
