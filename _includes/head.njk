@@ -1,12 +1,13 @@
+{% set fullTitle %}{{ title }} | {{ pkg.websiteMetadata.title }}{% endset %}
 <head>
   <meta charset="utf-8">
-  <title>{{ title }}</title>
 
+  <title>{{ fullTitle }}</title>
 
-  <meta name="description" content="">
+  <meta name="description" content="{{ description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta property="og:title" content="{{ title }} | {{ pkg.websiteMetadata.title }}">
+  <meta property="og:title" content="{{ fullTitle }}">
   <meta property="og:url" content="{{ page.url | url }}">
 
   <meta property="og:type" content="website">
