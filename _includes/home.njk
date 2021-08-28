@@ -3,30 +3,69 @@
 {% include 'head.njk' %}
 <body>
 
-  <div class="min-h-screen py-6 px-6 sm:px-12 max-w-xl mx-auto">
+{% include 'header.njk' %}
 
-    <div class="prose my-4">
-      {{ content | safe }}
+<div class="bg-gray-100 py-6 xl:py-32 px-6 sm:px-12">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-center text-5xl font-medium mb-6">{{ introduction.headline }}</h1>
+    <div class="prose prose-xl text-center">
+      {{ introduction.content | safe }}
     </div>
-
-    <h2 class="text-xl">Stories</h2>
-    <ul class="ml-4 mb-4">
-    {%- for story in collections.stories -%}
-      <li>
-        <a class="text-blue-600" href="{{ story.url | url }}">{{ story.data.title }}</a>
-      </li>
-    {%- endfor -%}
-    </ul>
-
-    <h2 class="text-xl">Projects</h2>
-    <ul class="ml-4 mb-4">
-    {%- for project in collections.projects -%}
-      <li>
-        <a class="text-blue-600" href="{{ project.url | url }}">{{ project.data.title }}</a>
-      </li>
-    {%- endfor -%}
-
-    </ul>
   </div>
+</div>
+
+<div class="bg-red-100 py-6 xl:py-16 px-6 sm:px-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="max-w-2xl">
+      <h2 class="text-left text-5xl font-medium mb-6">{{ whoDonationsHelp.headline }}</h2>
+      <div class="prose prose-xl">
+        {{ whoDonationsHelp.content | safe }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-200 py-6 xl:py-16 px-6 sm:px-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-end">
+      <div class="max-w-2xl">
+        <h2 class="text-left text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
+        <ul class="text-xl max-w-md">
+          {% for item in itemsNeeded.items %}
+            <li class="my-2">
+              <h3 class="font-semibold">{{ item.name }}</h3>
+              <p class="text-gray-600">{{ item.description }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-blue-100 py-6 xl:py-16 px-6 sm:px-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="max-w-2xl">
+      <h2 class="text-left text-5xl font-medium mb-6">{{ howToDonate.headline }}</h2>
+      <div class="prose prose-xl">
+        {{ howToDonate.content | safe }}
+      </div>
+
+      <h3 class="font-semibold text-xl mt-6">Phone number</h3>
+      <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800">
+        {{ website.phone }}
+      </a>
+
+      <h3 class="font-semibold text-xl mt-6">Email address</h3>
+      <a href="mailto:{{ website.email }}" class="inline-block text-2xl text-red-800">
+        {{ website.email }}
+      </a>
+
+    </div>
+  </div>
+</div>
+
+{% include 'footer.njk' %}
+
 </body>
 </html>

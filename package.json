@@ -1,7 +1,7 @@
 {
-  "name": "11ty-tailwind-starter",
+  "name": "rooms-with-love-website",
   "version": "1.0.0",
-  "description": "Very minimal 11ty + Tailwindcss boilerplate",
+  "description": "Website for a northern KY nonprofit, Rooms With Love",
   "main": "index.js",
   "engines": {
     "node": "16.3.0"
@@ -26,11 +26,5 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.7.1",
     "tailwindcss": "^2.2.7"
-  },
-  "websiteMetadata": {
-    "title": "My website title",
-    "shortTitle": "My website",
-    "themeColor": "fafafa",
-    "baseUrl": "https://ncksllvn.github.io/11ty-tailwind-starter"
   }
 }
