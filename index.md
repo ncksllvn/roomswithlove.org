@@ -5,7 +5,7 @@ introduction:
   headline: Furniture for those starting over
   content: Donations collected by Rooms With Love help your community in the Northern Kentucky tristate area.
 whoDonationsHelp:
-  headline: How does it work?
+  headline: How it works
   content: Rooms With Love is associated with the <a href="http://www.christschapel.net/">Christ's Chapel</a>. We serve the Northern Kentucky community by picking up your bed and other donations to support those in need around us.
 itemsNeeded:
   headline: Donation items needed

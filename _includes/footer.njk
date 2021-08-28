@@ -10,12 +10,12 @@
         <div class="flex-grow">
           <div class="text-center md:text-right text-white">
             <div>
-              <a href="{{ website.phone | telephoneLink }}">
+              <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
                 {{ website.phone }}
               </a>
             </div>
             <div>
-              <a href="mailto:{{ website.email }}">
+              <a class="hover:underline" href="mailto:{{ website.email }}">
                 {{ website.email }}
               </a>
             </div>
