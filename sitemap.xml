@@ -1,0 +1,30 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <url>
+      <loc>/</loc>
+      <lastmod>Sat Aug 28 2021 10:28:23 GMT-0400 (Eastern Daylight Time)</lastmod>
+    </url>
+  
+    <url>
+      <loc>/projects/example/</loc>
+      <lastmod>Sat Aug 28 2021 10:28:23 GMT-0400 (Eastern Daylight Time)</lastmod>
+    </url>
+  
+    <url>
+      <loc>/site.webmanifest</loc>
+      <lastmod>Sat Aug 28 2021 10:28:23 GMT-0400 (Eastern Daylight Time)</lastmod>
+    </url>
+  
+    <url>
+      <loc>/sitemap.xml</loc>
+      <lastmod>Sat Aug 28 2021 10:28:23 GMT-0400 (Eastern Daylight Time)</lastmod>
+    </url>
+  
+    <url>
+      <loc>/stories/example/</loc>
+      <lastmod>Sat Aug 28 2021 10:28:23 GMT-0400 (Eastern Daylight Time)</lastmod>
+    </url>
+  
+</urlset>
