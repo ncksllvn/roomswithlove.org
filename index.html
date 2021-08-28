@@ -18,6 +18,7 @@
 
   <link rel="manifest" href="/rooms-with-love/site.webmanifest">
   <link rel="apple-touch-icon" href="/rooms-with-love/icon.png">
+  <link rel="shortcut icon" href="/rooms-with-love/favicon.ico" />
 
   <link rel="stylesheet" href="/rooms-with-love/style/main.css">
   <meta name="theme-color" content="fafafa">
@@ -27,7 +28,7 @@
 
 <header class="bg-gray-100 px-6 lg:px-0">
   <div class="max-w-4xl mx-auto py-4">
-    <div class="flex">
+    <div class="flex items-center">
       <a href="/rooms-with-love/" class="flex items-baseline justify-left text-2xl text-red-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -36,6 +37,15 @@
           Rooms With Love
         </span>
       </a>
+      <div class="hidden flex-grow md:block">
+        <nav>
+          <ul class="flex gap-x-4 justify-end text-red-700">
+            <li><a href="#how-it-works" class="hover:underline">How it works</a>
+            <li><a href="#items-needed" class="hover:underline">Items needed</a>
+            <li><a href="#how-to-donate" class="hover:underline">How to donate</a>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </header>
@@ -53,7 +63,7 @@
 <div class="bg-red-100 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
     <div class="max-w-2xl">
-      <h2 class="text-left text-4xl lg:text-5xl font-medium mb-6">How does it work?</h2>
+      <h2 id="how-it-works" class="text-left text-4xl lg:text-5xl font-medium mb-6">How it works</h2>
       <div class="prose prose-xl">
         Rooms With Love is associated with the <a href="http://www.christschapel.net/">Christ's Chapel</a>. We serve the Northern Kentucky community by picking up your bed and other donations to support those in need around us.
       </div>
@@ -65,7 +75,7 @@
   <div class="max-w-4xl mx-auto">
     <div class="flex md:justify-end">
       <div class="max-w-2xl">
-        <h2 class="text-left text-4xl lg:text-5xl font-medium mb-6">Donation items needed</h2>
+        <h2 id="items-needed" class="text-left text-4xl lg:text-5xl font-medium mb-6">Donation items needed</h2>
         <ul class="text-xl max-w-md">
           
             <li class="my-2">
@@ -97,18 +107,18 @@
 <div class="bg-blue-100 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
     <div class="max-w-2xl">
-      <h2 class="text-left text-4xl lg:text-5xl font-medium mb-6">Make a donation</h2>
+      <h2 id="how-to-donate" class="text-left text-4xl lg:text-5xl font-medium mb-6">Make a donation</h2>
       <div class="prose prose-xl">
         To make a donation, please contact us today through phone or email!
       </div>
 
       <h3 class="font-semibold text-xl mt-6">Phone number</h3>
-      <a href="tel:+18591234567" class="inline-block text-2xl text-red-800">
+      <a href="tel:+18591234567" class="inline-block text-2xl text-red-800 hover:underline">
         (859) 123-4567
       </a>
 
       <h3 class="font-semibold text-xl mt-6">Email address</h3>
-      <a href="mailto:roomswithloveNKY@gmail.com" class="inline-block text-2xl text-red-800">
+      <a href="mailto:roomswithloveNKY@gmail.com" class="inline-block text-2xl text-red-800 hover:underline">
         roomswithloveNKY@gmail.com
       </a>
 
@@ -128,12 +138,12 @@
         <div class="flex-grow">
           <div class="text-center md:text-right text-white">
             <div>
-              <a href="tel:+18591234567">
+              <a class="hover:underline" href="tel:+18591234567">
                 (859) 123-4567
               </a>
             </div>
             <div>
-              <a href="mailto:roomswithloveNKY@gmail.com">
+              <a class="hover:underline" href="mailto:roomswithloveNKY@gmail.com">
                 roomswithloveNKY@gmail.com
               </a>
             </div>
