@@ -20,15 +20,15 @@
   <div class="max-w-4xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h2 id="how-it-works" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
-          {{ whoDonationsHelp.headline }}
+        <h2 id="about-us" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
+          {{ aboutUs.headline }}
         </h2>
         <div class="prose prose-xl">
-          {{ whoDonationsHelp.content | safe }}
+          {{ aboutUs.content | safe }}
         </div>
       </div>
       <div>
-        <img class="w-100" src="{{ whoDonationsHelp.picture.file }}" alt="{{ whoDonationsHelp.picture.description }}"/>
+        <img class="w-100" src="{{ aboutUs.picture.file }}" alt="{{ aboutUs.picture.description }}"/>
       </div>
     </div>
   </div>
