@@ -8,8 +8,9 @@ introduction:
     Kentucky area.
 whoDonationsHelp:
   headline: About us
-  content: Rooms With Love is associated with <a href="http://www.christschapel.net/">Christ's
-    Chapel</a>. We serve the community by picking up donations to support those in need around us.
+  content:
+    <p>Rooms With Love is owned by Kim and Jerry Harrison. We are associated with <a href="http://www.christschapel.net/">Christ's Chapel</a>. We serve the community by picking up donations to support those in need around us.</p>
+    <p>We were featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors of Union</a>.</p>
   picture:
     file: /kim-and-jerry.jpg
     description: Kim and Jerry in front of their truck with furniture in it
