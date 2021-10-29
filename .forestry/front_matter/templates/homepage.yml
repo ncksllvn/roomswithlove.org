@@ -28,8 +28,8 @@ fields:
         format: html-blocks
     label: content
 - type: field_group
-  name: whoDonationsHelp
-  label: Who donations help
+  name: aboutUs
+  label: About us
   fields:
   - type: text
     name: headline
