@@ -18,12 +18,18 @@ fields:
   - type: text
     name: headline
     label: headline
-  - type: text
-    name: content
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: html-blocks
     label: content
 - type: field_group
   name: whoDonationsHelp
-  label: whoDonationsHelp
+  label: Who donations help
   fields:
   - type: text
     name: headline
@@ -31,6 +37,10 @@ fields:
   - type: textarea
     name: content
     label: content
+    config:
+      wysiwyg: true
+      schema:
+        format: html-blocks
   - type: field_group
     name: picture
     label: picture
@@ -43,14 +53,20 @@ fields:
       label: description
 - type: field_group
   name: itemsNeeded
-  label: itemsNeeded
+  label: Items needed
   fields:
   - type: text
     name: headline
     label: headline
-  - type: text
-    name: description
-    label: description
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: html-blocks
+    label: content
   - type: field_group_list
     name: items
     label: items
@@ -73,7 +89,7 @@ fields:
       label: description
 - type: field_group
   name: howToDonate
-  label: howToDonate
+  label: How to donate
   fields:
   - type: text
     name: headline
@@ -81,6 +97,10 @@ fields:
   - type: textarea
     name: content
     label: content
+    config:
+      wysiwyg: true
+      schema:
+        format: html-blocks
   - type: field_group
     name: picture
     label: picture
