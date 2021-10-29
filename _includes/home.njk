@@ -18,10 +18,17 @@
 
 <div class="bg-red-100 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
-    <div class="max-w-2xl">
-      <h2 id="how-it-works" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ whoDonationsHelp.headline }}</h2>
-      <div class="prose prose-xl">
-        {{ whoDonationsHelp.content | safe }}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 id="how-it-works" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
+          {{ whoDonationsHelp.headline }}
+        </h2>
+        <div class="prose prose-xl">
+          {{ whoDonationsHelp.content | safe }}
+        </div>
+      </div>
+      <div>
+        <img class="w-100" src="{{ whoDonationsHelp.picture.file }}" alt="{{ whoDonationsHelp.picture.description }}"/>
       </div>
     </div>
   </div>
@@ -29,8 +36,11 @@
 
 <div class="bg-gray-200 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
-    <div class="flex md:justify-end">
-      <div class="max-w-2xl">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div class="col-span-2 hidden md:block">
+        <img class="w-100" src="{{ itemsNeeded.picture.file }}" alt="{{ itemsNeeded.picture.description }}"/>
+      </div>
+      <div class="col-span-3">
         <h2 id="items-needed" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
         <p class="prose prose-xl">{{ itemsNeeded.description }}</p>
         <ul class="text-xl max-w-md">
@@ -48,23 +58,28 @@
 
 <div class="bg-blue-100 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
-    <div class="max-w-2xl">
-      <h2 id="how-to-donate" class="font-serif  text-left text-4xl lg:text-5xl font-medium mb-6">{{ howToDonate.headline }}</h2>
-      <div class="prose prose-xl">
-        {{ howToDonate.content | safe }}
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 id="how-to-donate" class="font-serif  text-left text-4xl lg:text-5xl font-medium mb-6">{{ howToDonate.headline }}</h2>
+        <div class="prose prose-xl">
+          {{ howToDonate.content | safe }}
+        </div>
 
-      {% if website.phone %}
-        <h3 class="font-semibold text-xl mt-6">Phone number</h3>
-        <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800 hover:underline">
-          {{ website.phone }}
+        {% if website.phone %}
+          <h3 class="font-semibold text-xl mt-6">Phone number</h3>
+          <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800 hover:underline">
+            {{ website.phone }}
+          </a>
+        {% endif %}
+
+        <h3 class="font-semibold text-xl mt-6">Email address</h3>
+        <a href="mailto:{{ website.email }}" class="inline-block text-2xl text-red-800 hover:underline">
+          {{ website.email }}
         </a>
-      {% endif %}
-
-      <h3 class="font-semibold text-xl mt-6">Email address</h3>
-      <a href="mailto:{{ website.email }}" class="inline-block text-2xl text-red-800 hover:underline">
-        {{ website.email }}
-      </a>
+      </div>
+      <div>
+        <img class="w-100" src="{{ howToDonate.picture.file }}" alt="{{ howToDonate.picture.description }}"/>
+      </div>
 
     </div>
   </div>
