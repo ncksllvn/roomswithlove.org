@@ -42,12 +42,12 @@
       </div>
       <div class="col-span-3">
         <h2 id="items-needed" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
-        <p class="prose prose-xl">{{ itemsNeeded.description }}</p>
+        <p class="prose prose-xl">{{ itemsNeeded.content }}</p>
         <ul class="text-xl max-w-md">
           {% for item in itemsNeeded.items %}
             <li class="my-2">
               <h3 class="font-semibold">{{ item.name }}</h3>
-              <p class="text-gray-600">{{ item.description }}</p>
+              <p class="text-gray-600">{{ item.content }}</p>
             </li>
           {% endfor %}
         </ul>

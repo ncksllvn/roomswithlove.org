@@ -16,7 +16,7 @@ aboutUs:
     description: Kim and Jerry in front of their truck with furniture in it
 itemsNeeded:
   headline: Items needed
-  description: We are currently looking for the following gently used items.
+  content: We are currently looking for the following gently used items.
   items:
   - name: Living rooms
     description: Couches, love seats, end tables
