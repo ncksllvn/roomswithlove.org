@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US" class="h-screen">
+{% include 'head.njk' %}
+<body>
+
+<div class="max-w-xl mx-auto border my-4 p-2 filter grayscale">
+  <div class="flex justify-center">
+    <img class="h-24" src="{{ website.logo }}" alt="Rooms With Love logo"/>
+  </div>
+
+  <h1 class="font-serif text-center text-6xl font-medium my-4">
+    {{ title }}
+  </h1>
+
+  <div class="m-4">
+    <div class="prose text-center">
+      {{ body | safe }}
+
+    </div>
+  </div>
+
+  <p class="mt-2 text-center">For future donations, please contact us at</p>
+
+  {% if website.phone %}
+    <div class="text-center">
+      <a href="{{ website.phone | telephoneLink }}">
+        {{ website.phone }}
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="text-center">
+    <a href="mailto:{{ website.email }}">
+      {{ website.email }}
+    </a>
+  </div>
+
+  <div class="text-center font-bold">
+    <a href="/">{{ website.baseUrl }}</a>
+  </div>
+
+</div>
+
+</body>
+</html>

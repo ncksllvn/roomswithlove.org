@@ -5,13 +5,15 @@
 
 {% include 'header.njk' %}
 
-<div class="bg-gray-100 py-16 xl:py-16 px-6 sm:px-12">
-  <div class="max-w-xl mx-auto">
-    <h1 class="font-serif text-center text-4xl lg:text-5xl font-medium mb-6 mx-auto">
-      {{ introduction.headline }}
-    </h1>
-    <div class="prose prose-xl text-center">
-      {{ introduction.content | safe }}
+<div style="background-image: url('{{ introduction.backgroundPicture | safe }}')" class="py-16 xl:py-32 px-6 sm:px-12 bg-stretch bg-no-repeat bg-center">
+  <div class="max-w-xl mx-auto flex">
+    <div class="bg-black bg-opacity-60 rounded px-1 py-3">
+      <h1 class="font-serif text-center text-4xl lg:text-5xl font-medium my-6 mx-auto text-white">
+        {{ introduction.headline }}
+      </h1>
+      <div class="prose prose-xl text-center text-white">
+        {{ introduction.content | safe }}
+      </div>
     </div>
   </div>
 </div>
@@ -27,8 +29,8 @@
           {{ aboutUs.content | safe }}
         </div>
       </div>
-      <div>
-        <img class="w-100" src="{{ aboutUs.picture.file }}" alt="{{ aboutUs.picture.description }}"/>
+      <div class="justify-self-center md:justify-self-end">
+        <img class="w-100 filter drop-shadow-lg" src="{{ aboutUs.picture.file }}" alt="{{ aboutUs.picture.description }}"/>
       </div>
     </div>
   </div>
@@ -36,13 +38,13 @@
 
 <div class="bg-gray-200 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
-      <div class="col-span-2 hidden md:block">
-        <img class="w-100" src="{{ itemsNeeded.picture.file }}" alt="{{ itemsNeeded.picture.description }}"/>
+    <div class="md:grid md:grid-cols-5 gap-8 flex flex-col-reverse md:flex-col">
+      <div class="col-span-2 mx-auto">
+        <img class="w-100 filter drop-shadow-lg" src="{{ itemsNeeded.picture.file }}" alt="{{ itemsNeeded.picture.description }}"/>
       </div>
       <div class="col-span-3">
         <h2 id="items-needed" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
-        <p class="prose prose-xl">{{ itemsNeeded.content }}</p>
+        <p class="prose prose-xl">{{ itemsNeeded.content | safe }}</p>
         <ul class="text-xl max-w-md">
           {% for item in itemsNeeded.items %}
             <li class="my-2">
@@ -67,18 +69,18 @@
 
         {% if website.phone %}
           <h3 class="font-semibold text-xl mt-6">Phone number</h3>
-          <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800 hover:underline">
+          <a href="{{ website.phone | telephoneLink }}" class="inline-block text-xl text-red-800 hover:underline">
             {{ website.phone }}
           </a>
         {% endif %}
 
         <h3 class="font-semibold text-xl mt-6">Email address</h3>
-        <a href="mailto:{{ website.email }}" class="inline-block text-2xl text-red-800 hover:underline">
+        <a href="mailto:{{ website.email }}" class="inline-block text-xl text-red-800 hover:underline">
           {{ website.email }}
         </a>
       </div>
-      <div>
-        <img class="w-100" src="{{ howToDonate.picture.file }}" alt="{{ howToDonate.picture.description }}"/>
+      <div class="justify-self-center md:justify-self-end">
+        <img class="w-100 filter drop-shadow-lg" src="{{ howToDonate.picture.file }}" alt="{{ howToDonate.picture.description }}"/>
       </div>
 
     </div>
