@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en-US" class="h-screen">
 {% include 'head.njk' %}
 <body>
 
@@ -32,6 +32,7 @@
     <div class="flex md:justify-end">
       <div class="max-w-2xl">
         <h2 id="items-needed" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
+        <p class="prose prose-xl">{{ itemsNeeded.description }}</p>
         <ul class="text-xl max-w-md">
           {% for item in itemsNeeded.items %}
             <li class="my-2">
@@ -53,10 +54,12 @@
         {{ howToDonate.content | safe }}
       </div>
 
-      <h3 class="font-semibold text-xl mt-6">Phone number</h3>
-      <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800 hover:underline">
-        {{ website.phone }}
-      </a>
+      {% if website.phone %}
+        <h3 class="font-semibold text-xl mt-6">Phone number</h3>
+        <a href="{{ website.phone | telephoneLink }}" class="inline-block text-2xl text-red-800 hover:underline">
+          {{ website.phone }}
+        </a>
+      {% endif %}
 
       <h3 class="font-semibold text-xl mt-6">Email address</h3>
       <a href="mailto:{{ website.email }}" class="inline-block text-2xl text-red-800 hover:underline">
