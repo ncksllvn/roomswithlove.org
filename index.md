@@ -30,7 +30,6 @@ itemsNeeded:
     file: "/living-room.jpg"
     description: A newly furnished living room with a table, a couch, a love seat,
       and an ottoman
-  content: ''
 howToDonate:
   headline: How to donate
   content: "<p>We're glad that you're interested in making a donation. Please contact
