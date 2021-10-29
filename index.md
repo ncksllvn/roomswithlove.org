@@ -25,7 +25,7 @@ itemsNeeded:
     description: Lamps, nightstands, dressers, beds (queen-size and under)
   picture:
     file: /living-room.jpg
-    description: A picture of a living room with a table, a couch, and a love seat
+    description: A newly furnished living room with a table, a couch, a love seat, and an ottoman
 howToDonate:
   headline: How to donate
   content:
