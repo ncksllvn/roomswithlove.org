@@ -1,0 +1,93 @@
+---
+label: Homepage
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: description
+  label: description
+- type: text
+  name: layout
+  label: layout
+- type: field_group
+  name: introduction
+  label: introduction
+  fields:
+  - type: text
+    name: headline
+    label: headline
+  - type: text
+    name: content
+    label: content
+- type: field_group
+  name: whoDonationsHelp
+  label: whoDonationsHelp
+  fields:
+  - type: text
+    name: headline
+    label: headline
+  - type: textarea
+    name: content
+    label: content
+  - type: field_group
+    name: picture
+    label: picture
+    fields:
+    - type: file
+      name: file
+      label: file
+    - type: text
+      name: description
+      label: description
+- type: field_group
+  name: itemsNeeded
+  label: itemsNeeded
+  fields:
+  - type: text
+    name: headline
+    label: headline
+  - type: text
+    name: description
+    label: description
+  - type: field_group_list
+    name: items
+    label: items
+    fields:
+    - type: text
+      name: name
+      label: name
+    - type: text
+      name: description
+      label: description
+  - type: field_group
+    name: picture
+    label: picture
+    fields:
+    - type: file
+      name: file
+      label: file
+    - type: text
+      name: description
+      label: description
+- type: field_group
+  name: howToDonate
+  label: howToDonate
+  fields:
+  - type: text
+    name: headline
+    label: headline
+  - type: textarea
+    name: content
+    label: content
+  - type: field_group
+    name: picture
+    label: picture
+    fields:
+    - type: file
+      name: file
+      label: file
+    - type: text
+      name: description
+      label: description
