@@ -11,6 +11,7 @@ fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
 - type: field_group
   name: introduction
   label: Introduction
