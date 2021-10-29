@@ -1,5 +1,6 @@
 ---
 title: Furniture for those starting over
+description: Donations collected by Rooms With Love help your community in the Northern Kentucky area.
 layout: home
 introduction:
   headline: Furniture for those starting over
