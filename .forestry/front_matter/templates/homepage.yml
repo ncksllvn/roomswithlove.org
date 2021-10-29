@@ -13,7 +13,7 @@ fields:
   label: layout
 - type: field_group
   name: introduction
-  label: introduction
+  label: Introduction
   fields:
   - type: text
     name: headline
@@ -111,3 +111,5 @@ fields:
     - type: text
       name: description
       label: description
+pages:
+- index.md
