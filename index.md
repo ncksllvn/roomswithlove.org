@@ -10,16 +10,20 @@ introduction:
     Kentucky area.
 aboutUs:
   headline: About us
-  content: <p>Rooms With Love is owned by Kim and Jerry Harrison. We are associated
-    with <a href="http://www.christschapel.net/">Christ's Chapel</a>. We serve the
-    community by picking up donations to support those in need around us.</p> <p>We
-    were featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors of Union</a>.</p>
+  content: <p>Rooms With Love (RWL) is a nonprofit ministry founded by Kim and Jerry
+    Harrison. RWL is apart of <a href="http://www.christschapel.net/">Christ's Chapel</a>
+    Church Outreach. We serve those starting over from homelessness and/or addiction
+    in Northern Kentucky by picking up new or gently used furniture and household
+    items for families and individuals.</p><p>RWL was featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors
+    of Union</a> in January of 2020.</p>
   picture:
     file: "/kim-and-jerry-3.jpg"
-    description: Kim and Jerry of Rooms With Love smiling together in front of a storage unit
+    description: Kim and Jerry of Rooms With Love smiling together in front of a storage
+      unit
 itemsNeeded:
   headline: Items needed
-  content: We are currently looking for the following <strong>gently used</strong> items.
+  content: We are currently looking for the following <strong>gently used</strong>
+    items.
   items:
   - name: Living rooms
     description: Couches, love seats, end tables
@@ -33,7 +37,10 @@ itemsNeeded:
       and an ottoman
 howToDonate:
   headline: How to donate
-  content: "<p>We're glad that you're interested in making a donation!</p> <p>We ask that you also consider making a <strong>monetary donation of $25</strong> to help us continue to provide this service for our community.</p><p>Please contact us to arrange a pickup!</p>"
+  content: "<p>We're glad that you're interested in making a donation!</p> <p>We ask
+    that you also consider making a <strong>monetary donation of $25</strong> to help
+    us continue to provide this service for our community.</p><p>Please contact us
+    to arrange a pickup!</p>"
   picture:
     file: "/moving-furniture.jpg"
     description: Four people smiling while moving a mattress
