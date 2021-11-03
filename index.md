@@ -10,12 +10,13 @@ introduction:
     Kentucky area.
 aboutUs:
   headline: About us
-  content: <p>Rooms With Love (RWL) is a furniture ministry founded by Kim and Jerry
-    Harrison. RWL is a nonprofit ministry under <a href="http://www.christschapel.net/">Christ's
-    Chapel</a> Church. We serve those starting over from homelessness and/or addiction
-    in Northern Kentucky by picking up new or gently used furniture and household
-    items for families and individuals.</p><p>RWL was featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors
-    of Union</a> in January of 2020.</p>
+  content: <p>Rooms With Love (RWL) is a furniture ministry that serves those starting
+    over from homelessness and or addiction.  We serve those starting over from homelessness
+    and/or addiction in Northern Kentucky by picking up new or gently used furniture
+    and household items for families and individuals.</p><p>RWL is a nonprofit ministry
+    under <a href="http://www.christschapel.net/">Christ's Chapel</a> Church’s  Outreach.</p><p>RWL
+    was featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors of Union</a>
+    in January of 2020 after meeting the publisher during a pickup. </p>
   picture:
     file: "/kim-and-jerry-3.jpg"
     description: Kim and Jerry of Rooms With Love smiling together in front of a storage
