@@ -18,9 +18,9 @@ aboutUs:
     was featured in the <a href="/NeighborsOfUnion_Jan21-2.pdf">Neighbors of Union</a>
     in January of 2020 after meeting the publisher during a pickup. </p>
   picture:
-    file: "/kim-and-jerry-3.jpg"
-    description: Kim and Jerry of Rooms With Love smiling together in front of a storage
-      unit
+    file: "/73855f48-0e5e-4c20-baae-2a0274473cfa.jpeg"
+    description: 'Jerry Harrison and John Barwick loading up furniture donations.
+      John Barwick was blessed by Rooms With Love '
 itemsNeeded:
   headline: Items needed
   content: We are currently looking for the following <strong>gently used</strong>
