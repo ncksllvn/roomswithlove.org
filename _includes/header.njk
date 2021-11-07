@@ -1,27 +1,29 @@
 <header>
-  <div class="mx-auto px-6 py-2 lg:px-0">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-center">
-        <a href="{{ "/" | url }}" class="flex items-baseline justify-left text-2xl text-red-700">
-          <img class="h-20" src="{{ website.logo }}" alt="Rooms With Love logo"/>
-        </a>
-        <div class="hidden flex-grow md:block">
-          <nav>
-            <ul class="flex gap-x-4 justify-end text-red-700 relative top-2">
-              <li><a href="/#about-us" class="font-serif hover:underline">About us</a>
-              <li><a href="/#items-needed" class="font-serif hover:underline">Items needed</a>
-              <li><a href="/#how-to-donate" class="font-serif hover:underline">How to donate</a>
-            </ul>
-          </nav>
+  <div class="border-b border-gray-300 bg-white">
+    <div class="mx-auto px-6 py-2 lg:px-0">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center">
+          <a href="{{ "/" | url }}" class="flex items-baseline justify-left text-2xl text-red-700">
+            <img class="h-20" src="{{ website.logo }}" alt="Rooms With Love logo"/>
+          </a>
+          <div class="hidden flex-grow md:block">
+            <nav>
+              <ul class="flex gap-x-4 justify-end text-red-700 relative top-2">
+                <li><a href="/#items-needed" class="font-serif hover:underline">Items needed</a>
+                <li><a href="/#how-to-donate" class="font-serif hover:underline">How to donate</a>
+                <li><a href="/about-us" class="font-serif hover:underline">About us</a>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="md:hidden px-12 text-red-700 bg-gray-100 py-4">
-    <ul>
-      <li class="block my-1"><a href="/#about-us" class="font-serif hover:underline">About us</a>
-      <li class="block my-1"><a href="/#items-needed" class="font-serif hover:underline">Items needed</a>
-      <li class="block my-1"><a href="/#how-to-donate" class="font-serif hover:underline">How to donate</a>
-    </ul>
+    <div class="md:hidden px-12 text-red-700 bg-gray-100 py-4">
+      <ul>
+        <li class="block my-1"><a href="/#items-needed" class="font-serif hover:underline">Items needed</a>
+        <li class="block my-1"><a href="/#how-to-donate" class="font-serif hover:underline">How to donate</a>
+        <li class="block my-1"><a href="/about-us" class="font-serif hover:underline">About us</a>
+      </ul>
+    </div>
   </div>
 </header>

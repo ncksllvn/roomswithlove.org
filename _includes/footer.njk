@@ -9,7 +9,8 @@
         </div>
         <div class="md:flex-shrink md:text-right justify-self-end">
           <div class="text-white">
-            <address>
+            <a href="/about-us/" class="hover:underline">About us</a>
+            <address class="not-italic">
               {% if website.phone %}
                 <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
                   {{ website.phone }}
