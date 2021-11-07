@@ -2,23 +2,27 @@
   <div class="bg-black px-6 lg:px-0">
     <div class="max-w-4xl mx-auto py-8">
       <div class="md:flex items-center">
-        <div class="pb-4 md:pb-0">
+        <div class="pb-4 md:pb-0 flex-grow">
           <a href="http://www.christschapel.net" class="block">
             <img class="h-10 mx-auto md:mx-0" src="{{ "/christs-chapel-logo.png" | url }}" alt="Logo for Christ's Chapel"/>
           </a>
         </div>
-        <div class="md:flex-grow">
-          <div class="text-center md:text-right text-white">
-            <div>
+        <div class="md:flex-shrink md:text-right justify-self-end">
+          <div class="text-white">
+            <address>
               <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
                 {{ website.phone }}
               </a>
-            </div>
-            <div>
+              <br>
               <a class="hover:underline" href="mailto:{{ website.email }}">
                 {{ website.email }}
               </a>
-            </div>
+              <br>
+              {% if website.address.city %}
+                {{ website.address.street }},
+                {{ website.address.city }}, {{ website.address.state }} {{ website.address.zip }}
+              {% endif %}
+            </address>
           </div>
         </div>
       </div>
