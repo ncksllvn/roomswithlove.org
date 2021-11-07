@@ -5,19 +5,8 @@ fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
+  default: page
 - type: text
   name: title
   label: title
-- type: textarea
-  name: description
-  label: description
-- type: field_group
-  name: picture
-  label: picture
-  fields:
-  - type: file
-    name: file
-    label: file
-  - type: textarea
-    name: description
-    label: description
