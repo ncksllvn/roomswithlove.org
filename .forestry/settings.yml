@@ -1,7 +1,7 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: public/admin
+admin_path: "/"
 webhook_url: 
 sections:
 - type: document
@@ -10,6 +10,12 @@ sections:
 - type: document
   path: about-us.md
   label: About us
+- type: document
+  path: receipt.md
+  label: Receipt
+- type: document
+  path: _data/website.json
+  label: Contact info
 upload_dir: public
 public_path: ''
 front_matter_path: ''

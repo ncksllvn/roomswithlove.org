@@ -29,30 +29,6 @@ fields:
         format: html-blocks
     label: content
 - type: field_group
-  name: aboutUs
-  label: About us
-  fields:
-  - type: text
-    name: headline
-    label: headline
-  - type: textarea
-    name: content
-    label: content
-    config:
-      wysiwyg: true
-      schema:
-        format: html-blocks
-  - type: field_group
-    name: picture
-    label: picture
-    fields:
-    - type: file
-      name: file
-      label: file
-    - type: text
-      name: description
-      label: description
-- type: field_group
   name: itemsNeeded
   label: Items needed
   fields:
