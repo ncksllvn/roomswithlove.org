@@ -5,5 +5,11 @@
   "baseUrl": "https://www.RoomsWithLoveNKY.com",
   "phone": "",
   "email": "RoomsWithLoveNKY@gmail.com",
-  "logo": "/rooms-with-love-logo.png"
+  "logo": "/rooms-with-love-logo.png",
+  "address": {
+    "street": "",
+    "city": "",
+    "state": "",
+    "zip": ""
+  }
 }

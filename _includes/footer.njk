@@ -10,10 +10,12 @@
         <div class="md:flex-shrink md:text-right justify-self-end">
           <div class="text-white">
             <address>
-              <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
-                {{ website.phone }}
-              </a>
-              <br>
+              {% if website.phone %}
+                <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
+                  {{ website.phone }}
+                </a>
+                <br>
+              {% endif %}
               <a class="hover:underline" href="mailto:{{ website.email }}">
                 {{ website.email }}
               </a>
