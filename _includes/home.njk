@@ -18,24 +18,6 @@
   </div>
 </div>
 
-<div class="bg-red-100 py-16 xl:py-16 px-6 sm:px-12">
-  <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div>
-        <h2 id="about-us" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
-          {{ aboutUs.headline }}
-        </h2>
-        <div class="prose prose-xl">
-          {{ aboutUs.content | safe }}
-        </div>
-      </div>
-      <div class="justify-self-center md:justify-self-end">
-        <img class="w-100 filter drop-shadow-lg" src="{{ aboutUs.picture.file }}" alt="{{ aboutUs.picture.description }}"/>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="bg-gray-200 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
     <div class="md:grid md:grid-cols-5 gap-8 flex flex-col-reverse md:flex-col">
@@ -83,6 +65,24 @@
         <img class="w-100 filter drop-shadow-lg" src="{{ howToDonate.picture.file }}" alt="{{ howToDonate.picture.description }}"/>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<div class="bg-red-100 py-16 xl:py-16 px-6 sm:px-12">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 id="about-us" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
+          {{ aboutUs.headline }}
+        </h2>
+        <div class="prose prose-xl">
+          {{ aboutUs.content | safe }}
+        </div>
+      </div>
+      <div class="justify-self-center md:justify-self-end">
+        <img class="w-100 filter drop-shadow-lg" src="{{ aboutUs.picture.file }}" alt="{{ aboutUs.picture.description }}"/>
+      </div>
     </div>
   </div>
 </div>
