@@ -5,6 +5,10 @@
 
   <title>{{ fullTitle }}</title>
 
+  {% if private %}
+    <meta name="robots" content="noindex" />
+  {% endif %}
+
   <meta name="description" content="{{ description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
