@@ -11,6 +11,10 @@ sections:
   path: about-us.md
   label: About us
 - type: document
+  path: receipt.md
+  label: Receipt
+  match: "**/*"
+- type: document
   path: _data/website.json
   label: Contact info
 upload_dir: public
