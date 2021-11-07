@@ -5,6 +5,10 @@ admin_path: public/admin
 webhook_url: 
 sections:
 - type: document
+  path: _data/website.json
+  label: Contact info
+  match: "**/*"
+- type: document
   path: index.md
   label: Homepage
 - type: document
