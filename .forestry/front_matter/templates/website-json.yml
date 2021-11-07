@@ -5,15 +5,19 @@ fields:
 - type: text
   name: title
   label: title
+  hidden: true
 - type: text
   name: shortTitle
   label: shortTitle
+  hidden: true
 - type: text
   name: themeColor
   label: themeColor
+  hidden: true
 - type: text
   name: baseUrl
   label: baseUrl
+  hidden: true
 - type: text
   name: phone
   label: phone
