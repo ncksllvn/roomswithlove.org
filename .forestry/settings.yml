@@ -7,6 +7,10 @@ sections:
 - type: document
   path: index.md
   label: Homepage
+- type: document
+  path: about-us.md
+  label: About us
+  match: "**/*"
 upload_dir: public
 public_path: ''
 front_matter_path: ''
