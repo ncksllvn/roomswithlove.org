@@ -5,14 +5,14 @@ admin_path: public/admin
 webhook_url: 
 sections:
 - type: document
-  path: _data/website.json
-  label: Contact info
-- type: document
   path: index.md
   label: Homepage
 - type: document
   path: about-us.md
   label: About us
+- type: document
+  path: _data/website.json
+  label: Contact info
 upload_dir: public
 public_path: ''
 front_matter_path: ''
