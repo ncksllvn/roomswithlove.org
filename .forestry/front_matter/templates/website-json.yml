@@ -1,0 +1,41 @@
+---
+label: website.json
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: shortTitle
+  label: shortTitle
+- type: text
+  name: themeColor
+  label: themeColor
+- type: text
+  name: baseUrl
+  label: baseUrl
+- type: text
+  name: phone
+  label: phone
+- type: text
+  name: email
+  label: email
+- type: file
+  name: logo
+  label: logo
+- type: field_group
+  name: address
+  label: address
+  fields:
+  - type: text
+    name: street
+    label: street
+  - type: text
+    name: city
+    label: city
+  - type: text
+    name: state
+    label: state
+  - type: text
+    name: zip
+    label: zip
