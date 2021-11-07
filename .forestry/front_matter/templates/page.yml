@@ -10,3 +10,5 @@ fields:
 - type: text
   name: title
   label: title
+pages:
+- about-us.md
