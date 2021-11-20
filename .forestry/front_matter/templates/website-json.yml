@@ -22,6 +22,12 @@ fields:
   name: phone
   label: phone
 - type: text
+  name: facebook
+  label: Facebook
+- type: text
+  name: donations
+  label: Donations link
+- type: text
   name: email
   label: email
 - type: file
