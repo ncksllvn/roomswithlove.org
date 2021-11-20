@@ -18,7 +18,7 @@
               </div>
             {% endif %}
             <address class="not-italic">
-              <p class="text-lg font-bold">Contact us</p>
+              <p class="text-lg font-serif font-bold">Contact us</p>
               {% if website.phone %}
                 <a class="hover:underline" href="{{ website.phone | telephoneLink }}">
                   {{ website.phone }}
@@ -28,7 +28,7 @@
               <a class="hover:underline" href="mailto:{{ website.email }}">
                 {{ website.email }}
               </a>
-              <p class="text-lg font-bold mt-2">Location</p>
+              <p class="text-lg font-serif font-bold mt-2">Location</p>
               {% if website.address.city %}
                 {{ website.address.street }}<br>
                 {{ website.address.city }}, {{ website.address.state }} {{ website.address.zip }}
@@ -36,9 +36,9 @@
             </address>
           </div>
         </div>
-        <div class="pb-4 md:pb-0">
+        <div class="py-4">
           <a href="http://www.christschapel.net" class="block">
-            <img class="h-10 mx-auto md:mx-0" src="{{ "/christs-chapel-logo.png" | url }}" alt="Logo for Christ's Chapel"/>
+            <img class="h-10 md:h-12 mx-auto md:mx-0" src="{{ "/christs-chapel-logo.png" | url }}" alt="Logo for Christ's Chapel"/>
           </a>
         </div>
       </div>
