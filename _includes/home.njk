@@ -50,16 +50,23 @@
         </div>
 
         {% if website.phone %}
-          <h3 class="font-semibold text-xl mt-6">Phone number</h3>
+          <h3 class="font-semibold font-serif text-xl mt-6">Phone number</h3>
           <a href="{{ website.phone | telephoneLink }}" class="inline-block text-xl text-red-800 hover:underline">
             {{ website.phone }}
           </a>
         {% endif %}
 
-        <h3 class="font-semibold text-xl mt-6">Email address</h3>
+        <h3 class="font-semibold font-serif text-xl mt-6">Email address</h3>
         <a href="mailto:{{ website.email }}" class="inline-block text-xl text-red-800 hover:underline">
           {{ website.email }}
         </a>
+
+        {% if website.donations %}
+          <a href="{{ website.donations }}" class="inline-block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800">
+            Donate online
+          </a>
+        {% endif %}
+
       </div>
       <div class="justify-self-center md:justify-self-end">
         <img class="w-100 filter drop-shadow-lg" src="{{ howToDonate.picture.file }}" alt="{{ howToDonate.picture.description }}"/>
