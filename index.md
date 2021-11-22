@@ -14,7 +14,7 @@ itemsNeeded:
     items.
   items:
   - name: Living rooms
-    description: Couches, love seats, end tables
+    description: Couches (no sofa beds), love seats, end tables, coffee tables, lamps
   - name: Kitchens
     description: Kitchen tables, chairs
   - name: Bedrooms
