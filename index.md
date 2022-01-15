@@ -6,8 +6,8 @@ layout: home
 introduction:
   backgroundPicture: "/living-room-cropped.jpg"
   headline: Furniture for those starting over
-  content: Donations collected by Rooms With Love help your community in the Northern
-    Kentucky area.
+  content: <p>Donations collected by Rooms With Love help your community in the Northern
+    Kentucky area.</p>
 itemsNeeded:
   headline: Items needed
   content: We are currently looking for the following <strong>gently used</strong>
