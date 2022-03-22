@@ -24,7 +24,7 @@ itemsNeeded:
     description: A newly furnished living room with a table, a couch, a love seat,
       and an ottoman
 howToDonate:
-  headline: How to donate
+  headline: How to donate furniture?
   content: "<p>We're glad that you're interested in making a donation!</p> <p>We ask
     that you also consider making a <strong>monetary donation of $25</strong> to help
     us continue to provide this service for our community.</p><p>Please contact us
