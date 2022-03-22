@@ -9,14 +9,14 @@ introduction:
   content: Donations collected by Rooms With Love help your community in the Northern
     Kentucky area.
 itemsNeeded:
-  headline: Items needed
+  headline: Items Accepted
   content: We are currently looking for the following <strong>gently used</strong>
     items.
   items:
   - name: Living rooms
     description: Couches (no sofa beds), love seats, end tables, coffee tables, lamps
   - name: Kitchens
-    description: Kitchen tables, chairs
+    description: Kitchen tables, chairs, microwaves, dishes, utensils, coffee makers
   - name: Bedrooms
     description: Lamps, nightstands, dressers, beds (queen-size and under)
   picture:
