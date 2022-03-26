@@ -16,7 +16,7 @@ private: true
     <div class="prose prose-xl">
       {{ content | safe }}
     </div>
-    <form id="request-pickup-form" class="block max-w-xl text-lg">
+    <form id="request-pickup-form" action="/functions/request-pickup" class="block max-w-xl text-lg">
       <div class="my-4">
         <label for="name"
           class="bold font-bold">Name</label>*
@@ -81,11 +81,8 @@ private: true
           class="block"
           accept="image/jpeg,image/png"/>
       </div>
-
-
-
-      <button type="submit" class="inline-block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800">Submit</button>
-
+      <button type="submit"
+        class="w-full block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800">Submit</button>
     </form>
   </div>
 </div>
