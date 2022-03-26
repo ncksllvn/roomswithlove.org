@@ -1,0 +1,82 @@
+---
+private: true
+---
+<!doctype html>
+<html lang="en-US" class="h-screen bg-black">
+{% include 'head.njk' %}
+<body class="bg-white">
+
+{% include 'header.njk' %}
+
+<div class="max-w-4xl mx-auto">
+  <div class="py-16 xl:py-16 px-6 sm:px-12">
+    <h1 class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
+      {{ title  }}
+    </h1>
+    <div class="prose prose-xl">
+      {{ content | safe }}
+    </div>
+    <form id="request-pickup-form" class="block max-w-xl text-lg">
+      <div class="my-4">
+        <label for="name"
+          class="bold font-bold">Name</label>*
+        <input
+          type="text"
+          required
+          name="name"
+          id="name"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+      <div class="my-4">
+        <label for="address"
+            class="bold font-bold">Address</label>*
+        <input
+          type="text"
+          required
+          name="address"
+          id="address"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="phone"
+            class="bold font-bold">Phone Number</label>*
+        <input
+          type="tel"
+          required
+          name="phone"
+          id="phone"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="email"
+            class="bold font-bold">Email address</label>*
+        <input
+          type="email"
+          required
+          name="email"
+          id="email"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="picture"
+            class="bold font-bold">Picture of furniture</label>*
+        <input
+          type="file"
+          required
+          name="picture"
+          id="picture"
+          class="block"
+          accept="image/jpeg,image/png"/>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% include 'footer.njk' %}
+
+</body>
+</html>
