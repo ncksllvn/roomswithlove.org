@@ -61,8 +61,18 @@ private: true
       </div>
 
       <div class="my-4">
+        <label for="message"
+            class="bold font-bold">Message</label>*
+        <textarea
+          rows="3"
+          name="message"
+          id="message"
+          class="block w-full p-2 border border-gray-700"></textarea>
+      </div>
+
+      <div class="my-4">
         <label for="picture"
-            class="bold font-bold">Picture of furniture</label>*
+            class="bold font-bold">Picture of furniture</label>
         <input
           type="file"
           required
@@ -71,6 +81,10 @@ private: true
           class="block"
           accept="image/jpeg,image/png"/>
       </div>
+
+
+
+      <button type="submit" class="inline-block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800">Submit</button>
 
     </form>
   </div>
