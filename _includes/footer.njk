@@ -6,7 +6,7 @@
           <div class="text-white">
             {% if website.facebook %}
               <div class="mb-2">
-                <a title="Find us on Facebook" href="{{ website.facebook }}" data-analytics-event="outbound-link-clicked">
+                <a title="Find us on Facebook" href="{{ website.facebook }}" data-analytics-event="outbound_link_clicked">
                   <svg class="h-6 w-6 inline-block" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="60.734px" height="60.733px" viewBox="0 0 60.734 60.733" style="enable-background:new 0 0 60.734 60.733;"
                     xml:space="preserve">
@@ -20,12 +20,12 @@
             <address class="not-italic">
               <p class="text-lg font-serif font-bold">Contact us</p>
               {% if website.phone %}
-                <a class="hover:underline" href="{{ website.phone | telephoneLink }}" data-analytics-event="outbound-link-clicked">
+                <a class="hover:underline" href="{{ website.phone | telephoneLink }}" data-analytics-event="outbound_link_clicked">
                   {{ website.phone }}
                 </a>
                 <br>
               {% endif %}
-              <a class="hover:underline" href="mailto:{{ website.email }}" data-analytics-event="outbound-link-clicked">
+              <a class="hover:underline" href="mailto:{{ website.email }}" data-analytics-event="outbound_link_clicked">
                 {{ website.email }}
               </a>
               <p class="text-lg font-serif font-bold mt-2">Location</p>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="py-4">
-          <a href="http://www.christschapel.net" class="block" data-analytics-event="outbound-link-clicked">
+          <a href="http://www.christschapel.net" class="block" data-analytics-event="outbound_link_clicked">
             <img class="h-10 md:h-12 mx-auto md:mx-0" src="{{ "/christs-chapel-logo.png" | url }}" alt="Logo for Christ's Chapel"/>
           </a>
         </div>
@@ -48,7 +48,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const eventName = 'outbound-link-clicked';
+    const eventName = 'outbound_link_clicked';
     const trackedElements = Array.from(
       document.querySelectorAll(`[data-analytics-event="${eventName}"]`)
     );

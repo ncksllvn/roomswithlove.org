@@ -51,18 +51,18 @@
 
         {% if website.phone %}
           <h3 class="font-semibold font-serif text-xl mt-6">Phone number</h3>
-          <a href="{{ website.phone | telephoneLink }}" class="inline-block text-xl text-red-800 hover:underline" data-analytics-event="outbound-link-clicked">
+          <a href="{{ website.phone | telephoneLink }}" class="inline-block text-xl text-red-800 hover:underline" data-analytics-event="outbound_link_clicked">
             {{ website.phone }}
           </a>
         {% endif %}
 
         <h3 class="font-semibold font-serif text-xl mt-6">Email address</h3>
-        <a href="mailto:{{ website.email }}" class="inline-block text-xl text-red-800 hover:underline" data-analytics-event="outbound-link-clicked">
+        <a href="mailto:{{ website.email }}" class="inline-block text-xl text-red-800 hover:underline" data-analytics-event="outbound_link_clicked">
           {{ website.email }}
         </a>
 
         {% if website.donations %}
-          <a href="{{ website.donations }}" class="inline-block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800" data-analytics-event="outbound-link-clicked">
+          <a href="{{ website.donations }}" class="inline-block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800" data-analytics-event="outbound_link_clicked">
             Donate online
           </a>
         {% endif %}
