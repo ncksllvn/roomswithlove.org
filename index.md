@@ -23,7 +23,7 @@ itemsNeeded:
     description: A newly furnished living room with a table, a couch, a love seat,
       and an ottoman
 howToDonate:
-  headline: How to donate furniture?
+  headline: How to schedule a furniture pickup?
   content: "<p>Donating your gently used furniture provides a HOME for those starting
     over.  </p><p>To schedule a furniture pickup, contact us.  Please note: we only
     pickup in Boone, Kenton, and Cambell Counties.  To continue providing this ministry
