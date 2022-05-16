@@ -57,7 +57,7 @@
       const url = element.href;
 
       element.addEventListener('click', () => {
-        window.dataLayer.push({ event: eventName, url });
+        window.dataLayer.push({ event_name: eventName, url });
       });
     }
   });
