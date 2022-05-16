@@ -1,13 +1,13 @@
 ---
-title: Furniture for those starting over
-description: Furniture collected by Rooms With Love helps your community in the Northern
-  Kentucky area.
+title: 'Provides dignified furniture for displaced individuals and/or families '
+description: Furniture collected by Rooms With Love helps those living in Boone, Kenton
+  and Campbell County
 layout: home
 introduction:
   backgroundPicture: "/living-room-cropped.jpg"
-  headline: Furniture for those starting over
+  headline: Providing furniture for displaced individuals and/or families
   content: "<p>Furniture collected by Rooms With Love helps those in the Northern
-    Kentucky area.</p>"
+    Kentucky area (Boone, Kenton, and Cambell County)</p>"
 itemsNeeded:
   headline: Items Accepted
   content: "<p>We accept the following <strong>gently used</strong> items.</p>"
