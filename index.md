@@ -24,10 +24,12 @@ itemsNeeded:
       and an ottoman
 howToDonate:
   headline: How to donate furniture?
-  content: "<p>We're glad that you're interested in making a donation!</p> <p>We ask
-    that you also consider making a <strong>monetary donation of $25</strong> to help
-    us continue to provide this service for our community.</p><p>Please contact us
-    to arrange a pickup!</p>"
+  content: "<p>Donating your gently used furniture provides a HOME for those starting
+    over.  </p><p>To schedule a furniture pickup, contact us.  Please note: we only
+    pickup in Boone, Kenton, and Cambell Counties.  To continue providing this ministry
+    to the community we also ask for a <strong>monetary donation of $25</strong> to
+    help us cover gas and storage expenses.  </p><p>Please email or call/text us to
+    arrange a pickup!</p>"
   picture:
     file: "/moving-furniture.jpg"
     description: Four people smiling while moving a mattress
