@@ -25,11 +25,10 @@ itemsNeeded:
 howToDonate:
   headline: How to schedule a furniture pickup?
   content: "<p>Donating your gently used furniture provides a HOME for those starting
-    over.  </p><p>To schedule a furniture pickup, contact us.  Please note: we only
-    pickup in Boone, Kenton, and Cambell Counties.  To continue providing this ministry
-    to the community we also ask for a <strong>monetary donation of $25</strong> to
-    help us cover gas and storage expenses.  </p><p>Please email or call/text us to
-    arrange a pickup!</p>"
+    over.</p><p>Please Note: we only pickup in Boone, Kenton, and Cambell Counties.
+    To continue providing this ministry to the community we also ask for a <strong>monetary
+    donation of $25 for pickups</strong> to help us cover gas and storage expenses.</p><p>Please
+    email or call/text us to arrange a pickup!</p>"
   picture:
     file: "/moving-furniture.jpg"
     description: Four people smiling while moving a mattress
