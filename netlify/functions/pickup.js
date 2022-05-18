@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const mg = require("nodemailer-mailgun-transport");
+const parseMultipartForm = require('./parseMultipartForm');
 
 const {
   MAILGUN_API_KEY: mailgunApiKey,
@@ -15,24 +16,52 @@ const transporter = nodemailer.createTransport(
   })
 );
 
-const from = `RoomsWithLoveNKY Website<noreply@${mailgunDomain}>`;
-
-// @todo https://www.netlify.com/blog/2021/07/29/how-to-process-multipart-form-data-with-a-netlify-function/?_ga=2.9943221.1450757248.1652745541-1168716722.1652745541
+const mailTemplate = {
+  to: 'ncksllvn@gmail.com',
+  from: `RoomsWithLoveNKY Website<noreply@${mailgunDomain}>`,
+  subject: 'New pickup request'
+};
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { statusCode: 200, body: "Method Not Allowed" };
   }
 
-  const params = new URLSearchParams(event.body);
+  const fields = await parseMultipartForm(event);
+
+  const messageBody = `
+    Name:
+    ${fields.name}
+
+    Address:
+    ${fields.address}
+
+    Phone number:
+    ${fields.phone}
+
+    Email:
+    ${fields.email}
+
+    Message:
+    ${fields.message}
+  `;
+
   const mail = {
-    from,
-    to: 'ncksllvn@gmail.com',
-    subject: 'New pickup request',
-    text: params.get('message')
+    ...mailTemplate,
+    text: messageBody
   };
 
-  // { id, message, messageId }
+  if (fields.picture) {
+
+    console.log(fields.picture)
+
+    mail.attachments = [{
+      filename: fields.picture.filename,
+      content: fields.picture.content.toString('utf8'),
+      encoding: 'utf8'
+    }];
+  }
+
   const info = await transporter.sendMail(mail);
 
   return {
