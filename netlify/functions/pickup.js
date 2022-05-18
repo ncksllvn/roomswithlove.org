@@ -1,8 +1,5 @@
-const fs = require('fs')
-const path = require('path')
 const nodemailer = require("nodemailer");
 const mg = require("nodemailer-mailgun-transport");
-const detectCharacterEncoding = require('detect-character-encoding');
 const parseMultipartForm = require('./parseMultipartForm');
 
 const {
@@ -55,16 +52,7 @@ exports.handler = async (event, context) => {
   };
 
   if (fields.picture) {
-
-
-    const encoding = detectCharacterEncoding(fields.picture.content);
-
-    mail.attachments = [{
-      filename: fields.picture.filename,
-      content: fields.picture.content,
-      encoding: encoding.encoding
-    }];
-
+    mail.attachments = [fields.picture];
   }
 
   const info = await transporter.sendMail(mail);
