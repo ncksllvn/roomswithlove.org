@@ -16,7 +16,15 @@ private: true
     <div class="prose prose-xl">
       {{ content | safe }}
     </div>
-    <form id="request-pickup-form" action="http://localhost:9999/.netlify/functions/pickup" method="post" class="block max-w-xl text-lg">
+    <div id="form-feedback-success" aria-hidden="true" class="hidden my-4 p-4 bg-green-100">
+      <h2 class="text-lg font-serif">Thank you</h2>
+      <p>Your pickup request has been sent.</p>
+    </div>
+    <div id="form-feedback-failure" aria-hidden="true" class="hidden my-4 p-4 bg-green-100">
+      <h2 class="text-lg font-serif">An error occurred</h2>
+      <p>We’re sorry. Please try again later.</p>
+    </div>
+    <form id="request-pickup-form" action="/.netlify/functions/pickup" method="post" class="block max-w-xl text-lg">
       <div class="my-4">
         <label for="name"
           class="bold font-bold">Name</label>*
@@ -93,18 +101,19 @@ private: true
 
     const formData = new FormData(pickupForm);
 
-    const request = fetch('http://localhost:9999/.netlify/functions/pickup', {
+    const request = fetch('/.netlify/functions/pickup', {
       method: 'post',
       body: formData
     });
 
     request.then(response => {
-      console.log(response)
+      const successMessage = document.getElementById('form-feedback-success');
+      successMessage.classList.remove('hidden');
+      pickupForm.classList.add('hidden');
     }).catch(error => {
-      console.error(error)
-    })
-
-
+      const failureMessage = document.getElementById('form-feedback-failure');
+      failureMessage.classList.remove('hidden');
+    });
   });
 </script>
 
