@@ -17,7 +17,8 @@
     "watch": "DEBUG=Eleventy:* npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
     "watch:11ty": "eleventy --serve",
     "watch:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css --watch",
-    "functions": "netlify functions:serve"
+    "netlify:functions": "netlify functions:serve",
+    "netlify:dev": "netlify dev"
   },
   "author": "ncksllvn",
   "license": "MIT",
