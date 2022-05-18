@@ -11,15 +11,13 @@ function parseMultipartForm(event) {
       (fieldName, fileStream, info) => {
         const { filename, encoding, mimeType } = info;
 
-        fields[fieldName] = {
-          filename,
-          mimeType,
-          content: null,
-          encoding
-        };
-
         fileStream.on('data', (data) => {
-          fields[fieldName].content = data;
+          fields[fieldName] = {
+            filename,
+            mimeType,
+            content: data,
+            encoding
+          };
         });
       }
     );

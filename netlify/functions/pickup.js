@@ -1,10 +1,12 @@
-const nodemailer = require("nodemailer");
-const mg = require("nodemailer-mailgun-transport");
+const nodemailer = require('nodemailer');
+const mg = require('nodemailer-mailgun-transport');
 const parseMultipartForm = require('./parseMultipartForm');
 
 const {
   MAILGUN_API_KEY: mailgunApiKey,
-  MAILGUN_DOMAIN: mailgunDomain
+  MAILGUN_DOMAIN: mailgunDomain,
+  EMAIL_RECIPIENTS: emailRecipients,
+  EMAIL_BCC: emailBcc
 } = process.env;
 
 const transporter = nodemailer.createTransport(
@@ -17,9 +19,10 @@ const transporter = nodemailer.createTransport(
 );
 
 const mailTemplate = {
-  to: 'ncksllvn@gmail.com',
+  to: emailRecipients.split(','),
+  bcc: emailBcc,
   from: `RoomsWithLoveNKY Website<noreply@${mailgunDomain}>`,
-  subject: 'New pickup request'
+  subject: 'Pickup request'
 };
 
 exports.handler = async (event, context) => {
