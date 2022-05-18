@@ -30,12 +30,15 @@ function parseMultipartForm(event) {
 
     busboy.on('finish', () => resolve(fields));
 
-    if (event.isBase64Encoded) {
-      const buffer = Buffer.from(event.body, 'base64');
-      busboy.end(buffer.toString());
-    } else {
-      busboy.end(event.body);
-    }
+    busboy.write(event.body, event.isBase64Encoded ? 'base64' : 'binary');
+    busboy.end();
+
+    // if (event.isBase64Encoded) {
+    //   const buffer = Buffer.from(event.body, 'base64');
+    //   busboy.end(buffer.toString());
+    // } else {
+    //   busboy.end(event.body);
+    // }
   });
 }
 
