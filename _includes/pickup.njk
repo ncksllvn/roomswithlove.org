@@ -1,0 +1,121 @@
+---
+private: true
+---
+<!doctype html>
+<html lang="en-US" class="h-screen bg-black">
+{% include 'head.njk' %}
+<body class="bg-white">
+
+{% include 'header.njk' %}
+
+<div class="max-w-4xl mx-auto">
+  <div class="py-16 xl:py-16 px-6 sm:px-12">
+    <h1 class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
+      {{ title  }}
+    </h1>
+    <div class="prose prose-xl">
+      {{ content | safe }}
+    </div>
+    <div id="form-feedback-success" aria-hidden="true" class="hidden my-4 p-4 bg-green-100">
+      <h2 class="text-lg font-serif">Thank you</h2>
+      <p>Your pickup request has been sent.</p>
+    </div>
+    <div id="form-feedback-failure" aria-hidden="true" class="hidden my-4 p-4 bg-green-100">
+      <h2 class="text-lg font-serif">An error occurred</h2>
+      <p>We’re sorry. Please try again later.</p>
+    </div>
+    <form id="request-pickup-form" action="/.netlify/functions/pickup" method="post" class="block max-w-xl text-lg">
+      <div class="my-4">
+        <label for="name"
+          class="bold font-bold">Name</label>*
+        <input
+          type="text"
+          required
+          name="name"
+          id="name"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+      <div class="my-4">
+        <label for="address"
+            class="bold font-bold">Address</label>*
+        <input
+          type="text"
+          required
+          name="address"
+          id="address"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="phone"
+            class="bold font-bold">Phone Number</label>*
+        <input
+          type="tel"
+          required
+          name="phone"
+          id="phone"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="email"
+            class="bold font-bold">Email address</label>*
+        <input
+          type="email"
+          required
+          name="email"
+          id="email"
+          class="block w-full p-2 border border-gray-700"/>
+      </div>
+
+      <div class="my-4">
+        <label for="message"
+            class="bold font-bold">Message</label>*
+        <textarea
+          rows="3"
+          name="message"
+          id="message"
+          class="block w-full p-2 border border-gray-700"></textarea>
+      </div>
+      <div class="my-4">
+        <label for="message"
+            class="bold font-bold block">Picture of furniture</label>
+        <input
+          type="file"
+          name="picture"
+          id="picture"/>
+      </div>
+      <button type="submit"
+        class="w-full block text-xl bg-red-700 text-white mt-6 px-6 py-2 rounded-md hover:bg-red-800">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% include 'footer.njk' %}
+
+<script>
+  const pickupForm = document.getElementById('request-pickup-form');
+
+  pickupForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const formData = new FormData(pickupForm);
+
+    const request = fetch('/.netlify/functions/pickup', {
+      method: 'post',
+      body: formData
+    });
+
+    request.then(response => {
+      const successMessage = document.getElementById('form-feedback-success');
+      successMessage.classList.remove('hidden');
+      pickupForm.classList.add('hidden');
+    }).catch(error => {
+      const failureMessage = document.getElementById('form-feedback-failure');
+      failureMessage.classList.remove('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -16,7 +16,9 @@
     "start": "npm run watch",
     "watch": "DEBUG=Eleventy:* npm-run-all clean build:11ty -p watch:11ty watch:tailwind",
     "watch:11ty": "eleventy --serve",
-    "watch:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css --watch"
+    "watch:tailwind": "tailwindcss -i ./_style/main.pcss -o ./_site/style/main.css --watch",
+    "netlify:functions": "netlify functions:serve",
+    "netlify:dev": "netlify dev"
   },
   "author": "ncksllvn",
   "license": "MIT",
@@ -24,8 +26,14 @@
     "@11ty/eleventy": "^0.12.1",
     "@tailwindcss/typography": "^0.4.1",
     "gh-pages": "^3.2.3",
+    "netlify-cli": "^9.13.5",
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.7.1",
     "tailwindcss": "^2.2.7"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "nodemailer": "^6.7.5",
+    "nodemailer-mailgun-transport": "^2.1.3"
   }
 }
