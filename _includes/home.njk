@@ -26,7 +26,7 @@
       </div>
       <div class="col-span-3">
         <h2 id="items-accepted" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
-        <p class="prose prose-xl">{{ itemsNeeded.content | safe }}</p>
+        <div class="prose prose-xl">{{ itemsNeeded.content | safe }}</div>
         <ul class="text-xl max-w-md">
           {% for item in itemsNeeded.items %}
             <li class="my-2">
