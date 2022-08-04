@@ -1,11 +1,15 @@
 [
   {
-    "text": "Items needed",
-    "link": "/#items-needed"
+    "text": "Home",
+    "link": "/"
   },
   {
-    "text": "How to donate",
-    "link": "/#how-to-donate"
+    "text": "Items accepted",
+    "link": "/#items-accepted"
+  },
+  {
+    "text": "How to schedule",
+    "link": "/#how-to-schedule"
   },
   {
     "text": "About us",
