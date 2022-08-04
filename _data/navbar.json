@@ -1,15 +1,11 @@
 [
   {
-    "text": "Home",
-    "link": "/"
-  },
-  {
     "text": "Items accepted",
     "link": "/#items-accepted"
   },
   {
-    "text": "How to schedule",
-    "link": "/#how-to-schedule"
+    "text": "Schedule a pickup",
+    "link": "/pickup"
   },
   {
     "text": "About us",
