@@ -8,12 +8,15 @@
           </a>
           <div class="hidden flex-grow md:block">
             <nav>
-              <ul class="flex gap-x-4 justify-end text-red-700 relative top-2">
+              <ul class="flex justify-end relative top-2">
                 {% for navbarItem in navbar %}
                   <li>
-                    <a href="{{ navbarItem.link | safe }}" class="font-serif hover:underline">
+                    <a href="{{ navbarItem.link | safe }}" class="font-serif text-red-700 hover:underline">
                       {{ navbarItem.text }}
                     </a>
+                    {% if loop.last == false %}
+                      <span aria-presentation="true" class="mx-2 text-red-300">|</span>
+                    {% endif %}
                   </li>
                 {% endfor %}
               </ul>
