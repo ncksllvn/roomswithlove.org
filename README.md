@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e120bee8-7bdb-4320-b1e8-f21e54df0648/deploy-status)](https://app.netlify.com/sites/condescending-aryabhata-1c34a1/deploys)
+
 # Minimal 11ty + Tailwind starter kit
 This project is a starting point for an Eleventy + Tailwind project. It does not overinvest into a single technology or overly scaffold. It is designed for a dev to clone and then become productive with minimal overhead. The idea is to spend less time learning much about how the project is setup, cleaning out example files, or reconfiguring the technology.
 
