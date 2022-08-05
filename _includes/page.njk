@@ -12,9 +12,9 @@
     </h1>
     {% if picture %}
       <img src="{{ picture.file | safe }}" alt="{{ picture.description }}"
-        class="float-right max-w-sm mb-4"/>
+        class="float-right max-w-sm ml-12 mb-12"/>
     {% endif %}
-    <div class="prose">
+    <div class="prose prose-lg">
       {{ content | safe }}
     </div>
   </div>

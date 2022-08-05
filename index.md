@@ -7,7 +7,7 @@ introduction:
   backgroundPicture: "/living-room-cropped.jpg"
   headline: Providing dignified furniture for displaced individuals and/or families
   content: "<p>Furniture collected by Rooms With Love helps those in the Northern
-    Kentucky area (Boone, Kenton, and Cambell County)</p>"
+    Kentucky area (Boone, Kenton, and Campbell County)</p>"
 howToDonate:
   headline: How to donate your furniture
   content: "
