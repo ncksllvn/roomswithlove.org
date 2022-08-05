@@ -45,6 +45,9 @@ exports.handler = async (event, context) => {
     Email:
     ${fields.email}
 
+    Pickup preference
+    ${fields['pickup-preference']}
+
     Message:
     ${fields.message}
   `;
