@@ -18,28 +18,6 @@
   </div>
 </div>
 
-<div class="bg-blue-100 py-16 xl:py-16 px-6 sm:px-12">
-  <div class="max-w-4xl mx-auto">
-    <div class="md:grid md:grid-cols-5 gap-8 flex flex-col-reverse md:flex-col">
-      <div class="col-span-2 mx-auto">
-        <img class="w-100 filter drop-shadow-lg" src="{{ itemsNeeded.picture.file }}" alt="{{ itemsNeeded.picture.description }}"/>
-      </div>
-      <div class="col-span-3">
-        <h2 id="items-accepted" class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">{{ itemsNeeded.headline }}</h2>
-        <div class="prose prose-xl">{{ itemsNeeded.content | safe }}</div>
-        <ul class="text-xl max-w-md">
-          {% for item in itemsNeeded.items %}
-            <li class="my-2">
-              <h3 class="font-semibold">{{ item.name }}</h3>
-              <p class="text-gray-600">{{ item.description }}</p>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="bg-yellow-100 py-16 xl:py-16 px-6 sm:px-12">
   <div class="max-w-4xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">

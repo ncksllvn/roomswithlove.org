@@ -1,14 +1,14 @@
 [
   {
     "text": "Items accepted",
-    "link": "/#items-accepted"
+    "link": "/items-accepted/"
   },
   {
     "text": "Schedule a pickup",
-    "link": "/pickup"
+    "link": "/pickup/"
   },
   {
     "text": "About us",
-    "link": "/about-us"
+    "link": "/about-us/"
   }
 ]

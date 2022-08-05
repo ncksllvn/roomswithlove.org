@@ -1,7 +1,10 @@
 ---
 layout: page
 title: About us
-
+picture:
+  file: "/moving-furniture-2.jpg"
+  description: A newly furnished living room with a table, a couch, a love seat,
+    and an ottoman
 ---
 Rooms With Love (RWL) is a furniture ministry that serves those starting over from homelessness and/ or addiction in Northern Kentucky by picking up new or gently used furniture and household items.
 

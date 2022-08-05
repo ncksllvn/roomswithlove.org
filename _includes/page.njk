@@ -10,8 +10,12 @@
     <h1 class="font-serif text-left text-4xl lg:text-5xl font-medium mb-6">
       {{ title  }}
     </h1>
-    <div class="prose prose-xl">
-    {{ content | safe }}
+    {% if picture %}
+      <img src="{{ picture.file | safe }}" alt="{{ picture.description }}"
+        class="float-right max-w-sm mb-4"/>
+    {% endif %}
+    <div class="prose">
+      {{ content | safe }}
     </div>
   </div>
 </div>
