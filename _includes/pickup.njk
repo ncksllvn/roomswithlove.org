@@ -22,9 +22,9 @@ private: true
       <h2 class="text-lg font-serif">Thank you</h2>
       <p>Your pickup request has been sent.</p>
     </div>
-    <div id="form-feedback-failure" aria-hidden="true" class="hidden my-4 p-4 bg-green-100">
+    <div id="form-feedback-failure" aria-hidden="true" class="hidden my-4 p-4 bg-red-100">
       <h2 class="text-lg font-serif">An error occurred</h2>
-      <p>We’re sorry. Please try again later.</p>
+      <p>We’re sorry. Please try again later. If the problem persists, please contact us at {{ website.email }}.</p>
     </div>
     <form id="request-pickup-form" action="/.netlify/functions/pickup" method="post" class="block max-w-xl text-lg">
       <div class="my-4">
@@ -129,12 +129,20 @@ private: true
     });
 
     request.then(response => {
+      if (!response.ok) {
+        throw new Error('Response not ok');
+      }
+
       const successMessage = document.getElementById('form-feedback-success');
+
       successMessage.classList.remove('hidden');
       pickupForm.classList.add('hidden');
     }).catch(error => {
       const failureMessage = document.getElementById('form-feedback-failure');
+
       failureMessage.classList.remove('hidden');
+      failureMessage.scrollIntoView();
+
       pickupForm.disabled = false;
     });
   });
