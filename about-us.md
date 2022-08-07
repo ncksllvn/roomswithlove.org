@@ -7,7 +7,7 @@ picture:
     an ottoman
 
 ---
-Rooms With Love (RWL) is a furniture ministry that serves displaced individuals and/or families and makes their house a HOME.  RWL mission is for those starting over  fill the HOMEomelessness and/ or addiction in Northern Kentucky by picking up new or gently used furniture and household items.
+Rooms With Love (RWL) is a furniture ministry that serves displaced individuals and/or families and makes their house a __home__.  RWL's mission is to help those starting over from homelessness and/or addiction in the Northern Kentucky by picking up new or gently used furniture and household items.
 
 RWL began in 2020 as a ministry under Christ Chapel church and became a nonprofit organization in 2022.
 
