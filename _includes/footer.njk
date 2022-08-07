@@ -1,8 +1,8 @@
 <footer>
   <div class="bg-black px-6 lg:px-0">
     <div class="max-w-4xl mx-auto py-8">
-      <address class="text-white not-italic grid grid-cols-1 md:grid-cols-2">
-        <div>
+      <address class="text-white not-italic grid md:grid-cols-3">
+        <div class="text-center">
           <p class="text-lg font-serif font-bold">Contact us</p>
           {% if website.phone %}
             <a class="hover:underline" href="{{ website.phone | telephoneLink }}" data-analytics-event="outbound_link_clicked">
@@ -13,8 +13,10 @@
           <a class="hover:underline" href="mailto:{{ website.email }}" data-analytics-event="outbound_link_clicked">
             {{ website.email }}
           </a>
+        </div>
+        <div class="self-center justify-self-center my-4 md:my-0">
           {% if website.facebook %}
-            <div class="mb-2">
+            <div>
               <a title="Find us on Facebook" href="{{ website.facebook }}" data-analytics-event="outbound_link_clicked">
                 <svg class="h-6 w-6 inline-block" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   width="60.734px" height="60.733px" viewBox="0 0 60.734 60.733" style="enable-background:new 0 0 60.734 60.733;"
@@ -27,14 +29,17 @@
             </div>
           {% endif %}
         </div>
-        <div>
-          <p class="text-lg font-serif font-bold mt-2">Location</p>
+        <div class="text-center">
+          <p class="text-lg font-serif font-bold">Location</p>
           {% if website.address.city %}
             {{ website.address.street }}<br>
             {{ website.address.city }}, {{ website.address.state }} {{ website.address.zip }}
           {% endif %}
         </div>
       </address>
+      <div class="text-center text-gray-400 text-sm my-4 md:my-0">
+        <p>&copy; 2022 Rooms With Love</p>
+      </div>
     </div>
   </div>
 </footer>
