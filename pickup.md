@@ -4,7 +4,6 @@ title: Schedule a furniture pickup
 picture:
     file: "/moving-furniture.jpg"
     description: Four people smiling while moving a mattress
-eleventyExcludeFromCollections: true
 ---
 Donating your gently used furniture provides a __home__ for those starting over. To schedule
 a pickup, please fill out the form below.
