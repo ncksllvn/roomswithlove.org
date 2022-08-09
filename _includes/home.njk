@@ -6,12 +6,12 @@
 {% include 'header.njk' %}
 
 <div style="background-image: url('{{ introduction.backgroundPicture | safe }}')" class="py-16 xl:py-32 px-6 sm:px-12 bg-stretch bg-no-repeat bg-center">
-  <div class="max-w-xl mx-auto flex">
-    <div class="bg-black bg-opacity-60 rounded p-4">
-      <h1 class="font-serif text-center text-4xl font-medium my-6 mx-auto text-white">
+  <div class="max-w-lg mx-auto flex">
+    <div class="bg-black bg-opacity-60 rounded p-4 md:p-8">
+      <h1 class="font-serif text-center text-2xl md:text-3xl font-medium mb-4 text-white">
         {{ introduction.headline }}
       </h1>
-      <div class="prose prose-xl text-center text-white">
+      <div class="prose prose-lg text-center text-white">
         {{ introduction.content | safe }}
       </div>
     </div>
@@ -22,7 +22,7 @@
   <div class="max-w-4xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h2 id="how-to-schedule" class="font-serif  text-left text-2xl lg:text-5xl font-medium mb-6">{{ howToDonate.headline }}</h2>
+        <h2 id="how-to-schedule" class="font-serif  text-left text-2xl md:text-4xl font-medium mb-6">{{ howToDonate.headline }}</h2>
         <div class="prose prose-lg">
           {{ howToDonate.content | safe }}
         </div>
