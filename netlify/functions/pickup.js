@@ -38,7 +38,8 @@ exports.handler = async (event, context) => {
   const requiredFields = [
     'name', 'phone', 'email',
     'street', 'city', 'state', 'zip',
-    'schedule-preference', 'message'
+    'schedule-preference', 'message',
+    'picture1'
   ];
 
   const missingField = requiredFields.find(fieldName => {
@@ -75,11 +76,16 @@ exports.handler = async (event, context) => {
 
   const mail = {
     ...mailTemplate,
-    text: messageBody
+    text: messageBody,
+    attachments: [fields.picture1]
   };
 
-  if (fields.picture) {
-    mail.attachments = [fields.picture];
+  if (fields.picture2) {
+    mail.attachments.push(fields.picture2);
+  }
+
+  if (fields.picture3) {
+    mail.attachments.push(fields.picture3);
   }
 
   const info = await transporter.sendMail(mail);

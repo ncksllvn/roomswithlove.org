@@ -28,7 +28,7 @@
         <legend class="text-xl font-serif">Contact Information</legend>
         <div>
           <label for="name"
-            class="bold font-bold">Name</label>*
+            class="bold font-bold">Name</label><span class="text-red-700">*</span>
           <input
             type="text"
             required
@@ -40,7 +40,7 @@
 
         <div class="my-4">
           <label for="email"
-              class="bold font-bold">Email address</label>*
+              class="bold font-bold">Email address</label><span class="text-red-700">*</span>
           <input
             type="email"
             required
@@ -52,7 +52,7 @@
 
         <div class="mt-4">
           <label for="phone"
-              class="bold font-bold">Phone Number</label>*
+              class="bold font-bold">Phone Number</label><span class="text-red-700">*</span>
           <input
             type="tel"
             required
@@ -68,7 +68,7 @@
 
         <div class="mb-4">
           <label for="street"
-              class="bold font-bold">Street</label>*
+              class="bold font-bold">Street</label><span class="text-red-700">*</span>
           <input
             type="text"
             required
@@ -80,7 +80,7 @@
 
         <div class="my-4">
           <label for="city"
-              class="bold font-bold">City</label>*
+              class="bold font-bold">City</label><span class="text-red-700">*</span>
           <input
             type="text"
             required
@@ -92,7 +92,7 @@
 
         <div class="my-4">
           <label for="state"
-              class="bold font-bold">State</label>*
+              class="bold font-bold">State</label><span class="text-red-700">*</span>
 
           <select required name="state" id="state" class="block w-full p-2 border border-gray-700">
             <option value="Kentucky">Kentucky</option>
@@ -103,7 +103,7 @@
 
         <div class="mt-4">
           <label for="zip"
-              class="bold font-bold">Zipcode</label>*
+              class="bold font-bold">Zipcode</label><span class="text-red-700">*</span>
 
           <input
             pattern="[0-9]{5}"
@@ -121,7 +121,7 @@
         <legend class="text-xl font-serif">Pickup information</legend>
         <div class="mb-4">
           <label for="schedule-preference"
-              class="bold font-bold">Schedule preferences</label>
+              class="bold font-bold">Schedule preferences</label><span class="text-red-700">*</span>
           <input
             type="text"
             required
@@ -133,7 +133,7 @@
 
         <div class="my-4">
           <label for="message"
-              class="bold font-bold">Message</label>*
+              class="bold font-bold">Message</label><span class="text-red-700">*</span>
           <textarea
             rows="3"
             name="message"
@@ -141,14 +141,35 @@
             placeholder="We have a twin-size mattress we are interested in donating!"
             class="block w-full p-2 border border-gray-700"></textarea>
         </div>
-        <div class="mt-4">
-          <label for="message"
-              class="bold font-bold block">Picture of furniture</label>
+
+        <div class="my-4">
+          <label for="picture1"
+              class="bold font-bold">Picture of furniture 1</label><span class="text-red-700">*</span>
           <input
             type="file"
             accept="image/*"
-            name="picture"
-            id="picture"/>
+            name="picture1"
+            id="picture1"/>
+        </div>
+
+        <div class="my-4">
+          <label for="picture2"
+              class="bold font-bold block">Picture 2 (optional)</label>
+          <input
+            type="file"
+            accept="image/*"
+            name="picture2"
+            id="picture2"/>
+        </div>
+
+        <div class="mt-4">
+          <label for="picture3"
+              class="bold font-bold block">Picture 3 (optional)</label>
+          <input
+            type="file"
+            accept="image/*"
+            name="picture3"
+            id="picture3"/>
         </div>
       </fieldset>
 
