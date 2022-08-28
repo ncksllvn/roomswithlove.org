@@ -26,18 +26,35 @@ const mailTemplate = {
 };
 
 exports.handler = async (event, context) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 200, body: "Method Not Allowed" };
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 200,
+      body: 'Method Not Allowed'
+    };
   }
 
   const fields = await parseMultipartForm(event);
 
+  const requiredFields = [
+    'name', 'phone', 'email',
+    'street', 'city', 'state', 'zip',
+    'schedule-preference', 'message'
+  ];
+
+  const missingField = requiredFields.find(fieldName => {
+    return !fields[fieldName];
+  });
+
+  if (missingField) {
+    return {
+      statusCode: 400,
+      body: `"${missingField}" is required`
+    }
+  }
+
   const messageBody = `
     Name:
     ${fields.name}
-
-    Address:
-    ${fields.address}
 
     Phone number:
     ${fields.phone}
@@ -45,8 +62,12 @@ exports.handler = async (event, context) => {
     Email:
     ${fields.email}
 
-    Pickup preference
-    ${fields['pickup-preference']}
+    Address:
+    ${fields.street}
+    ${fields.city}, ${fields.state} ${fields.zip}
+
+    Schedule preference
+    ${fields['schedule-preference']}
 
     Message:
     ${fields.message}
