@@ -183,11 +183,16 @@
 
 <script>
   const pickupForm = document.getElementById('request-pickup-form');
+  const successMessage = document.getElementById('form-feedback-success');
+  const failureMessage = document.getElementById('form-feedback-failure');
 
   pickupForm.addEventListener('submit', event => {
     event.preventDefault();
 
     pickupForm.disabled = true;
+
+    successMessage.classList.add('hidden');
+    failureMessage.classList.add('hidden');
 
     const formData = new FormData(pickupForm);
 
@@ -201,16 +206,11 @@
         throw new Error('Response not ok');
       }
 
-      const successMessage = document.getElementById('form-feedback-success');
-
       successMessage.classList.remove('hidden');
       pickupForm.classList.add('hidden');
     }).catch(error => {
-      const failureMessage = document.getElementById('form-feedback-failure');
-
       failureMessage.classList.remove('hidden');
       failureMessage.scrollIntoView();
-
       pickupForm.disabled = false;
     });
   });

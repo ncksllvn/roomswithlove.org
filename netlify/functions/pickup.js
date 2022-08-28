@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
+const getImageType = require('image-type');
+
 const parseMultipartForm = require('./parseMultipartForm');
 
 const {
@@ -24,6 +26,16 @@ const mailTemplate = {
   from: `RoomsWithLoveNKY Website<noreply@${mailgunDomain}>`,
   subject: 'Pickup request'
 };
+
+const invalidAttachment = {
+  statusCode: 400,
+  body: 'Invalid attachment'
+};
+
+function isValidPicture(attachment) {
+  const type = getImageType(attachment.content);
+  return type;
+}
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
@@ -74,6 +86,10 @@ exports.handler = async (event, context) => {
     ${fields.message}
   `;
 
+  if (!isValidPicture(fields.picture1)) {
+    return invalidAttachment;
+  }
+
   const mail = {
     ...mailTemplate,
     text: messageBody,
@@ -81,10 +97,18 @@ exports.handler = async (event, context) => {
   };
 
   if (fields.picture2) {
+    if (!isValidPicture(fields.picture2)) {
+      return invalidAttachment;
+    }
+
     mail.attachments.push(fields.picture2);
   }
 
   if (fields.picture3) {
+    if (!isValidPicture(fields.picture3)) {
+      return invalidAttachment;
+    }
+
     mail.attachments.push(fields.picture3);
   }
 
