@@ -214,7 +214,6 @@
     req.open('POST', '/.netlify/functions/pickup', true);
     req.onerror = onFail;
     req.onload = () => {
-      alert(req.status)
       if (req.status == 200) {
         onSuccess();
       } else {
