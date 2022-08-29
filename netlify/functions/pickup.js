@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
+const getImageType = require('image-type');
+
 const parseMultipartForm = require('./parseMultipartForm');
 
 const {
@@ -59,6 +61,19 @@ exports.handler = async (event, context) => {
   };
 
   if (fields.attachments) {
+
+    const allValidImages = fields.attachments.every(attachment => {
+      return getImageType(attachment.content);
+    });
+
+    if (!allValidImages) {
+      console.log('One or more invalid attachments');
+      return {
+        statusCode: 400,
+        body: 'One or more invalid attachments'
+      };
+    }
+
     mail.attachments = fields.attachments;
   }
 

@@ -172,6 +172,9 @@
 <script>
   const pickupForm = document.getElementById('request-pickup-form');
   const filesInput = document.getElementById('pictures');
+  const successMessage = document.getElementById('form-feedback-success');
+  const failureMessage = document.getElementById('form-feedback-failure');
+
   let isSubmitting = false;
 
   filesInput.addEventListener('change', event => {
@@ -208,14 +211,10 @@
       if (!response.ok) {
         throw new Error('Response not ok');
       }
-
-      const successMessage = document.getElementById('form-feedback-success');
-
       successMessage.classList.remove('hidden');
+      failureMessage.classList.add('hidden');
       pickupForm.classList.add('hidden');
     }).catch(error => {
-      const failureMessage = document.getElementById('form-feedback-failure');
-
       failureMessage.classList.remove('hidden');
       failureMessage.scrollIntoView();
     }).then(() => {
