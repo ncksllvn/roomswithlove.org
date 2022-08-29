@@ -189,6 +189,17 @@
   const successMessage = document.getElementById('form-feedback-success');
   const failureMessage = document.getElementById('form-feedback-failure');
 
+  const onSuccess = (e) => {
+    successMessage.classList.remove('hidden');
+    pickupForm.classList.add('hidden');
+  };
+
+  const onFail = () => {
+    failureMessage.classList.remove('hidden');
+    failureMessage.scrollIntoView();
+    pickupForm.disabled = false;
+  };
+
   pickupForm.addEventListener('submit', event => {
     event.preventDefault();
 
@@ -199,23 +210,18 @@
 
     const formData = new FormData(pickupForm);
 
-    const request = fetch('/.netlify/functions/pickup', {
-      method: 'post',
-      body: formData
-    });
-
-    request.then(response => {
-      if (!response.ok) {
-        throw new Error('Response not ok');
+    const req = new XMLHttpRequest();
+    req.open('POST', '/.netlify/functions/pickup', true);
+    req.onerror = onFail;
+    req.onload = () => {
+      alert(req.status)
+      if (req.status == 200) {
+        onSuccess();
+      } else {
+        onFail();
       }
-
-      successMessage.classList.remove('hidden');
-      pickupForm.classList.add('hidden');
-    }).catch(error => {
-      failureMessage.classList.remove('hidden');
-      failureMessage.scrollIntoView();
-      pickupForm.disabled = false;
-    });
+    };
+    req.send(formData);
   });
 </script>
 
