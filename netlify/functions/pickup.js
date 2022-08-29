@@ -58,8 +58,8 @@ exports.handler = async (event, context) => {
     text: messageBody
   };
 
-  if (fields.picture1) {
-    mail.attachments = [fields.picture1];
+  if (fields.attachments) {
+    mail.attachments = fields.attachments;
   }
 
   const info = await transporter.sendMail(mail);

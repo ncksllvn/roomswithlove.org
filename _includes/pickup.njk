@@ -22,7 +22,13 @@
       <h2 class="text-lg font-serif">An error occurred</h2>
       <p>We’re sorry. Please try again later. If the problem persists, please contact us at {{ website.email }}.</p>
     </div>
-    <form id="request-pickup-form" action="/.netlify/functions/pickup" method="post" class="block max-w-xl text-lg">
+    <form
+      name="pickup"
+      id="request-pickup-form"
+      action="/.netlify/functions/pickup"
+      method="post"
+      class="block max-w-xl text-lg"
+      enctype="multipart/form-data">
 
       <fieldset class="border p-4">
         <legend class="text-xl font-serif">Contact Information</legend>
@@ -143,18 +149,19 @@
         </div>
 
         <div class="my-4">
-          <label for="picture1"
-              class="bold font-bold">Picture of furniture 1</label><span class="text-red-700">*</span>
+          <label for="pictures"
+              class="bold font-bold">Pictures of furniture (5MB limit)</label><span class="text-red-700">*</span>
           <input
             type="file"
             accept="image/*"
             class="w-full"
-            name="picture1"
-            id="picture1"/>
+            name="pictures"
+            id="pictures"
+            multiple/>
         </div>
       </fieldset>
 
-      <button type="submit"
+      <button type="submit" id="submit-pickup"
         class="w-full block text-xl bg-red-700 text-white mt-8 px-6 py-2 rounded-md hover:bg-red-800">Submit</button>
     </form>
   </div>
@@ -164,11 +171,31 @@
 
 <script>
   const pickupForm = document.getElementById('request-pickup-form');
+  const filesInput = document.getElementById('pictures');
+  let isSubmitting = false;
+
+  filesInput.addEventListener('change', event => {
+    const bytes = Array.from(pickupForm.pictures.files).reduce((sum, nextFile) => {
+      return sum + nextFile.size;
+    }, 0);
+
+    const megabytes = bytes / 1048576;
+
+    if (megabytes > 5) {
+      alert(
+        `Sorry, we only support up to 5MB of images. There are ${megabytes.toFixed(1)}MB of images attached.`);
+      pickupForm.pictures.value = null;
+    }
+  });
 
   pickupForm.addEventListener('submit', event => {
     event.preventDefault();
 
-    pickupForm.disabled = true;
+    if (isSubmitting) {
+      return;
+    }
+
+    isSubmitting = true;
 
     const formData = new FormData(pickupForm);
 
@@ -191,8 +218,8 @@
 
       failureMessage.classList.remove('hidden');
       failureMessage.scrollIntoView();
-
-      pickupForm.disabled = false;
+    }).then(() => {
+      isSubmitting = false;
     });
   });
 </script>
