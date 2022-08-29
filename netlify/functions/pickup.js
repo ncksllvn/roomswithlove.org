@@ -112,10 +112,18 @@ exports.handler = async (event, context) => {
     mail.attachments.push(fields.picture3);
   }
 
-  const info = await transporter.sendMail(mail);
+  try {
+    const info = await transporter.sendMail(mail);
+    return {
+      statusCode: 200,
+      body: info.message
+    };
+  } catch(error) {
+    console.log(error);
+    return {
+      statusCode: 500
+    };
+  }
 
-  return {
-    statusCode: 200,
-    body: info.message
-  };
+
 };
