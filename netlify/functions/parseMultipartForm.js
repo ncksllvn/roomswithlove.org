@@ -2,22 +2,23 @@ const Busboy = require('busboy');
 
 function parseMultipartForm(event) {
   return new Promise((resolve) => {
-    const fields = {};
+    const fields = {
+      attachments: []
+    };
     const busboy = Busboy({
       headers: event.headers
     });
 
-    busboy.on('file',
-      (fieldName, fileStream, info) => {
+    busboy.on('file', (fieldName, fileStream, info) => {
         const { filename, encoding, mimeType } = info;
 
         fileStream.on('data', (data) => {
-          fields[fieldName] = {
+          fields.attachments.push({
             filename,
             mimeType,
             content: data,
             encoding
-          };
+          });
         });
       }
     );
