@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport(
 const mailTemplate = {
   to: emailRecipients.split(','),
   bcc: emailBcc,
-  from: `RoomsWithLoveNKY Website<noreply@${mailgunDomain}>`,
+  from: `RoomsWithLove<noreply@${mailgunDomain}>`,
   subject: 'Pickup request'
 };
 
