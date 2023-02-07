@@ -2,7 +2,8 @@ const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const getImageType = require('image-type');
 
-const parseMultipartForm = require('./parseMultipartForm');
+const Sentry = require('../helpers/sentry');
+const parseMultipartForm = require('../helpers/parseMultipartForm');
 
 const {
   MAILGUN_API_KEY: mailgunApiKey,
@@ -27,12 +28,23 @@ const mailTemplate = {
   subject: 'Pickup request'
 };
 
+const serverError = {
+  statusCode: 500,
+  body: 'An unknown error occurred'
+};
+
 exports.handler = async (event, context) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 200, body: "Method Not Allowed" };
   }
 
-  const fields = await parseMultipartForm(event);
+  let fields;
+  try {
+    fields = await parseMultipartForm(event);
+  } catch (error) {
+    Sentry.captureException(error);
+    return serverError;
+  }
 
   const messageBody = `
     Name:
@@ -61,7 +73,6 @@ exports.handler = async (event, context) => {
   };
 
   if (fields.attachments) {
-
     const allValidImages = fields.attachments.every(attachment => {
       return getImageType(attachment.content);
     });
@@ -77,10 +88,14 @@ exports.handler = async (event, context) => {
     mail.attachments = fields.attachments;
   }
 
-  const info = await transporter.sendMail(mail);
-
-  return {
-    statusCode: 200,
-    body: info.message
-  };
+  try {
+    const info = await transporter.sendMail(mail);
+    return {
+      statusCode: 200,
+      body: info.message
+    };
+  } catch (error) {
+    Sentry.captureException(error);
+    return serverError;
+  }
 };
