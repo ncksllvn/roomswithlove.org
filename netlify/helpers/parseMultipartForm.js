@@ -1,5 +1,5 @@
 const Busboy = require('busboy');
-const FileType = require('stream-file-type');
+const { Transform } = require('node:stream');
 
 function parseMultipartForm(event, options = {}) {
   return new Promise((resolve) => {
@@ -11,29 +11,25 @@ function parseMultipartForm(event, options = {}) {
     });
 
     busboy.on('file', async (_fieldName, fileStream, info) => {
-        const { filename, encoding, mimeType } = info;
+        // The stream has to be read to completion
+        // or else Busboy will hang while processing
+        // the form contents. We want to hold on to the streams
+        // so that we can stream the uploads over email,
+        // we we create a Transform stream to receive the
+        // original stream contents from Busboy.
 
-        const detector = new FileType();
-        const getFileType = detector.fileTypePromise();
+        const { filename, encoding } = info;
+        const passthrough = new Transform({
+          transform(chunk, _, cb) {
+            cb(null, chunk)
+          }
+        });
 
-        fileStream.pipe(detector);
-
-        const fileType = await getFileType;
-
-        if (!fileType) {
-          console.warn('Failed to determine mime type');
-          return;
-        }
-
-        if (options.mimeTypes && !options.mimeTypes(fileType.mime)) {
-          console.warn('Invalid mime type');
-          return;
-        }
+        fileStream.pipe(passthrough);
 
         fields.attachments.push({
           filename,
-          mimeType,
-          content: detector,
+          content: passthrough,
           encoding
         });
       }
@@ -43,7 +39,7 @@ function parseMultipartForm(event, options = {}) {
       fields[fieldName] = value;
     });
 
-    busboy.on('finish', () => resolve(fields));
+    busboy.on('close', () => resolve(fields));
     busboy.write(event.body, event.isBase64Encoded ? 'base64' : 'binary');
     busboy.end();
   });

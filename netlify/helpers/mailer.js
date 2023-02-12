@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport(
     auth: {
       api_key: mailgunApiKey,
       domain: mailgunDomain
-    },
+    }
   })
 );
 

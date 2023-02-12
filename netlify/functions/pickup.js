@@ -1,35 +1,18 @@
-const nodemailer = require('nodemailer');
-const mg = require('nodemailer-mailgun-transport');
-
+const mailer = require('../helpers/mailer');
 const Sentry = require('../helpers/sentry');
 const parseMultipartForm = require('../helpers/parseMultipartForm');
 
 const {
-  MAILGUN_API_KEY: mailgunApiKey,
   MAILGUN_DOMAIN: mailgunDomain,
   EMAIL_RECIPIENTS: emailRecipients,
   EMAIL_BCC: emailBcc
 } = process.env;
-
-const transporter = nodemailer.createTransport(
-  mg({
-    auth: {
-      api_key: mailgunApiKey,
-      domain: mailgunDomain
-    },
-  })
-);
 
 const mailTemplate = {
   to: emailRecipients.split(','),
   bcc: emailBcc,
   from: `RoomsWithLove<noreply@${mailgunDomain}>`,
   subject: 'Pickup request'
-};
-
-const serverError = {
-  statusCode: 500,
-  body: 'An unknown error occurred'
 };
 
 exports.handler = async (event, context) => {
@@ -40,6 +23,9 @@ exports.handler = async (event, context) => {
   const fields = await parseMultipartForm(event, {
     mimeTypes: mime => mime.startsWith('image/')
   });
+
+  const scope = new Sentry.Scope();
+  scope.setUser({ email: fields.email });
 
   const messageBody = `
     Name:
@@ -67,18 +53,44 @@ exports.handler = async (event, context) => {
     text: messageBody
   };
 
-  if (fields.attachments) {
+  if (fields.attachments.length > 0) {
+    // const getImagesOnly = fields.attachments.map(async attachment => {
+    //     const { content, getFileType } = attachment;
+    //     const fileType = await getFileType;
+
+    //     if (fileType.mime.startsWith('image/')) {
+    //       return { content };
+    //     }
+
+    //     return null;
+    //   });
+
+    // let images = await Promise.all(getImagesOnly);
+    // images = images.filter(image => image);
+
     mail.attachments = fields.attachments;
+
+    mail.attachments.forEach(a => {
+      a.content.resume();
+      a.content.on('close', () => 'closing...')
+    })
   }
 
+  let info;
+
   try {
-    const info = await transporter.sendMail(mail);
-    return {
-      statusCode: 200,
-      body: info.message
-    };
+    console.log('Sending mail...')
+    info = await mailer.sendMail(mail);
   } catch (error) {
-    Sentry.captureException(error);
-    return serverError;
+    Sentry.captureException(error, scope);
+    return {
+      statusCode: 500,
+      body: 'An unknown error occurred'
+    };
   }
+
+  return {
+    statusCode: 200,
+    body: info.message
+  };
 };
