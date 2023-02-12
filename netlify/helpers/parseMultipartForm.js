@@ -1,6 +1,7 @@
 const Busboy = require('busboy');
+const FileType = require('stream-file-type');
 
-function parseMultipartForm(event) {
+function parseMultipartForm(event, options = {}) {
   return new Promise((resolve) => {
     const fields = {
       attachments: []
@@ -9,16 +10,31 @@ function parseMultipartForm(event) {
       headers: event.headers
     });
 
-    busboy.on('file', (fieldName, fileStream, info) => {
+    busboy.on('file', async (_fieldName, fileStream, info) => {
         const { filename, encoding, mimeType } = info;
 
-        fileStream.on('data', (data) => {
-          fields.attachments.push({
-            filename,
-            mimeType,
-            content: data,
-            encoding
-          });
+        const detector = new FileType();
+        const getFileType = detector.fileTypePromise();
+
+        fileStream.pipe(detector);
+
+        const fileType = await getFileType;
+
+        if (!fileType) {
+          console.warn('Failed to determine mime type');
+          return;
+        }
+
+        if (options.mimeTypes && !options.mimeTypes(fileType.mime)) {
+          console.warn('Invalid mime type');
+          return;
+        }
+
+        fields.attachments.push({
+          filename,
+          mimeType,
+          content: detector,
+          encoding
         });
       }
     );

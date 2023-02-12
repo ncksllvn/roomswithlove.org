@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
-const getImageType = require('image-type');
 
 const Sentry = require('../helpers/sentry');
 const parseMultipartForm = require('../helpers/parseMultipartForm');
@@ -38,13 +37,9 @@ exports.handler = async (event, context) => {
     return { statusCode: 200, body: "Method Not Allowed" };
   }
 
-  let fields;
-  try {
-    fields = await parseMultipartForm(event);
-  } catch (error) {
-    Sentry.captureException(error);
-    return serverError;
-  }
+  const fields = await parseMultipartForm(event, {
+    mimeTypes: mime => mime.startsWith('image/')
+  });
 
   const messageBody = `
     Name:
@@ -73,18 +68,6 @@ exports.handler = async (event, context) => {
   };
 
   if (fields.attachments) {
-    const allValidImages = fields.attachments.every(attachment => {
-      return getImageType(attachment.content);
-    });
-
-    if (!allValidImages) {
-      console.log('One or more invalid attachments');
-      return {
-        statusCode: 400,
-        body: 'One or more invalid attachments'
-      };
-    }
-
     mail.attachments = fields.attachments;
   }
 
