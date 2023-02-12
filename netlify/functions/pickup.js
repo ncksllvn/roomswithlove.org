@@ -1,24 +1,12 @@
-const nodemailer = require('nodemailer');
-const mg = require('nodemailer-mailgun-transport');
-const getImageType = require('image-type');
-
-const parseMultipartForm = require('./parseMultipartForm');
+const mailer = require('../helpers/mailer');
+const Sentry = require('../helpers/sentry');
+const parsePickupForm = require('../helpers/parsePickupForm');
 
 const {
-  MAILGUN_API_KEY: mailgunApiKey,
   MAILGUN_DOMAIN: mailgunDomain,
   EMAIL_RECIPIENTS: emailRecipients,
   EMAIL_BCC: emailBcc
 } = process.env;
-
-const transporter = nodemailer.createTransport(
-  mg({
-    auth: {
-      api_key: mailgunApiKey,
-      domain: mailgunDomain
-    },
-  })
-);
 
 const mailTemplate = {
   to: emailRecipients.split(','),
@@ -32,7 +20,10 @@ exports.handler = async (event, context) => {
     return { statusCode: 200, body: "Method Not Allowed" };
   }
 
-  const fields = await parseMultipartForm(event);
+  const scope = new Sentry.Scope();
+  const fields = await parsePickupForm(event);
+
+  scope.setUser({ email: fields.email });
 
   const messageBody = `
     Name:
@@ -57,27 +48,21 @@ exports.handler = async (event, context) => {
 
   const mail = {
     ...mailTemplate,
-    text: messageBody
+    text: messageBody,
+    attachments: fields.attachments
   };
 
-  if (fields.attachments) {
+  let info;
 
-    const allValidImages = fields.attachments.every(attachment => {
-      return getImageType(attachment.content);
-    });
-
-    if (!allValidImages) {
-      console.log('One or more invalid attachments');
-      return {
-        statusCode: 400,
-        body: 'One or more invalid attachments'
-      };
-    }
-
-    mail.attachments = fields.attachments;
+  try {
+    info = await mailer.sendMail(mail);
+  } catch (error) {
+    Sentry.captureException(error, scope);
+    return {
+      statusCode: 500,
+      body: 'An unknown error occurred'
+    };
   }
-
-  const info = await transporter.sendMail(mail);
 
   return {
     statusCode: 200,
