@@ -1,7 +1,7 @@
 const Busboy = require('busboy');
-const { Transform } = require('node:stream');
+const { PassThrough } = require('node:stream');
 
-function parseMultipartForm(event, options = {}) {
+function parsePickupForm(event) {
   return new Promise((resolve) => {
     const fields = {
       attachments: []
@@ -15,15 +15,17 @@ function parseMultipartForm(event, options = {}) {
         // or else Busboy will hang while processing
         // the form contents. We want to hold on to the streams
         // so that we can stream the uploads over email,
-        // we we create a Transform stream to receive the
+        // we we create a Passthrough stream to receive the
         // original stream contents from Busboy.
 
-        const { filename, encoding } = info;
-        const passthrough = new Transform({
-          transform(chunk, _, cb) {
-            cb(null, chunk)
-          }
-        });
+        const { filename, encoding, mimeType } = info;
+
+        if (!mimeType.startsWith('image/')) {
+          fileStream.resume();
+          return;
+        }
+
+        const passthrough = new PassThrough();
 
         fileStream.pipe(passthrough);
 
@@ -45,4 +47,4 @@ function parseMultipartForm(event, options = {}) {
   });
 }
 
-module.exports = parseMultipartForm;
+module.exports = parsePickupForm;

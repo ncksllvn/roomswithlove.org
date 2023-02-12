@@ -1,6 +1,6 @@
 const mailer = require('../helpers/mailer');
 const Sentry = require('../helpers/sentry');
-const parseMultipartForm = require('../helpers/parseMultipartForm');
+const parsePickupForm = require('../helpers/parsePickupForm');
 
 const {
   MAILGUN_DOMAIN: mailgunDomain,
@@ -20,11 +20,9 @@ exports.handler = async (event, context) => {
     return { statusCode: 200, body: "Method Not Allowed" };
   }
 
-  const fields = await parseMultipartForm(event, {
-    mimeTypes: mime => mime.startsWith('image/')
-  });
-
   const scope = new Sentry.Scope();
+  const fields = await parsePickupForm(event);
+
   scope.setUser({ email: fields.email });
 
   const messageBody = `
@@ -50,36 +48,13 @@ exports.handler = async (event, context) => {
 
   const mail = {
     ...mailTemplate,
-    text: messageBody
+    text: messageBody,
+    attachments: fields.attachments
   };
-
-  if (fields.attachments.length > 0) {
-    // const getImagesOnly = fields.attachments.map(async attachment => {
-    //     const { content, getFileType } = attachment;
-    //     const fileType = await getFileType;
-
-    //     if (fileType.mime.startsWith('image/')) {
-    //       return { content };
-    //     }
-
-    //     return null;
-    //   });
-
-    // let images = await Promise.all(getImagesOnly);
-    // images = images.filter(image => image);
-
-    mail.attachments = fields.attachments;
-
-    mail.attachments.forEach(a => {
-      a.content.resume();
-      a.content.on('close', () => 'closing...')
-    })
-  }
 
   let info;
 
   try {
-    console.log('Sending mail...')
     info = await mailer.sendMail(mail);
   } catch (error) {
     Sentry.captureException(error, scope);
